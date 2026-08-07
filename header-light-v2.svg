@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="860" height="180" viewBox="0 0 860 180" role="img" aria-label="PlutoKeating — That is to make positive impacts on the world :)">
+  <style>
+    .title  { font-family: Consolas, "SFMono-Regular", Menlo, "Courier New", monospace; font-size: 54px; font-weight: 700; fill: #1f2328; text-anchor: middle; }
+    .slogan { font-family: Consolas, "SFMono-Regular", Menlo, "Courier New", monospace; font-size: 16px; font-weight: 400; fill: #59636e; text-anchor: middle; }
+  </style>
+  <text x="430" y="100" class="title">PlutoKeating</text>
+  <text x="430" y="150" class="slogan">That is to make positive impacts on the world.  :)</text>
+</svg>

@@ -1,0 +1,111 @@
+<div align="center">
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PlutoKeating/PlutoKeating/main/header-dark-v2.svg">
+  <img alt="PlutoKeating — That is to make positive impacts on the world :)" src="https://raw.githubusercontent.com/PlutoKeating/PlutoKeating/main/header-light-v2.svg">
+</picture>
+
+<br>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PlutoKeating/PlutoKeating/main/divider-dark.svg">
+  <img alt="" src="https://raw.githubusercontent.com/PlutoKeating/PlutoKeating/main/divider-light.svg">
+</picture>
+
+<br>
+<br>
+
+![Profile views](https://komarev.com/ghpvc/?username=PlutoKeating&style=for-the-badge&color=blueviolet)
+![GitHub followers](https://img.shields.io/github/followers/PlutoKeating?style=for-the-badge&logo=github&labelColor=24292e&color=blueviolet)
+![GitHub stars](https://img.shields.io/github/stars/PlutoKeating?style=for-the-badge&logo=github&labelColor=24292e&color=blueviolet)
+
+<br>
+
+![Shell](https://img.shields.io/badge/Shell-4EAA25?style=for-the-badge&logo=gnubash&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![C](https://img.shields.io/badge/C-A8B9CC?style=for-the-badge&logo=c&logoColor=white)
+
+<br>
+
+</div>
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/PlutoKeating/PlutoKeating/main/contribution-dark.svg">
+    <img alt="PlutoKeating 的 GitHub 提交绿墙 / Contribution graph" width="100%" src="https://raw.githubusercontent.com/PlutoKeating/PlutoKeating/main/contribution-light.svg">
+  </picture>
+</p>
+
+## 🤖 AI 项目 · AI Projects
+
+| 项目 Project | 简介 About | ⭐ | 语言 Language |
+| :--- | :--- | :---: | :--- |
+| [Project.MilanoLibrary](https://github.com/PlutoKeating/Project.MilanoLibrary) | 无数据库的视频资料库与重组编译器<br>Database-less video vault & recomposition compiler | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.MilanoLibrary?style=social) | Python |
+| [Project.Terra](https://github.com/PlutoKeating/Project.Terra) | AI 全栈项目自动化系统 / 系统架构可视化画布<br>AI full-stack automation & system design canvas | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.Terra?style=social) | TypeScript |
+| [Project.superMindmap](https://github.com/PlutoKeating/Project.superMindmap) | Agent 驱动的智能思维导图编辑器<br>Agent-powered interactive mindmap editor | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.superMindmap?style=social) | Python |
+| [AI_NovelGenerator_remix_PK](https://github.com/PlutoKeating/AI_NovelGenerator_remix_PK) | 原仓库 [YILING0013/AI_NovelGenerator](https://github.com/YILING0013/AI_NovelGenerator)：AI 多章节长篇小说生成<br>Upstream: AI multi-chapter novel generation | ![Stars](https://img.shields.io/github/stars/PlutoKeating/AI_NovelGenerator_remix_PK?style=social) | Python |
+
+## 📱 设备与固件 · Devices & Firmware
+
+> 安卓设备逆向与 Linux 刷机
+> Android device reverse engineering & Linux flashing
+
+| 项目 Project | 简介 About | ⭐ | 语言 Language |
+| :--- | :--- | :---: | :--- |
+| [Project.GT](https://github.com/PlutoKeating/Project.GT) | 为 Samsung GT-I9082i 移植 Debian/Linux<br>Debian armhf port for the Samsung GT-I9082i | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.GT?style=social) | Shell |
+| [Project.MiPad2Xubuntu](https://github.com/PlutoKeating/Project.MiPad2Xubuntu) | 小米平板 2 刷入 Xubuntu 24.04 完整工具包与移植指南<br>Complete toolkit & porting guide for Xubuntu 24.04 on the Mi Pad 2 | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.MiPad2Xubuntu?style=social) | Shell |
+
+## ⚙️ 嵌入式开发 · Embedded Development
+
+| 项目 Project | 简介 About | ⭐ | 语言 Language |
+| :--- | :--- | :---: | :--- |
+| [Project.LightsUP](https://github.com/PlutoKeating/Project.LightsUP) | STM32F1XX 蜂鸣器与 RGB LED 演示项目<br>Demo project for STM32F1XX-based sounder & RGB LED | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.LightsUP?style=social) | C |
+
+## 🛠 效率工具 · Utilities
+
+| 项目 Project | 简介 About | ⭐ | 语言 Language |
+| :--- | :--- | :---: | :--- |
+| [quickToMyEnv](https://github.com/PlutoKeating/quickToMyEnv) | 在新电脑上快速重建熟悉的 Linux 环境<br>Rebuild your familiar Linux environment on any new machine | ![Stars](https://img.shields.io/github/stars/PlutoKeating/quickToMyEnv?style=social) | Shell |
+| [autoTmux](https://github.com/PlutoKeating/autoTmux) | 登录 Shell 时自动启用 tmux 环境<br>Automatically enable tmux on shell login | ![Stars](https://img.shields.io/github/stars/PlutoKeating/autoTmux?style=social) | Shell |
+
+## 📚 学习与成长 · Learning & Growth
+
+### 🎓 专业技能学习 · Professional Skills
+
+| 项目 Project | 简介 About | ⭐ | 语言 Language |
+| :--- | :--- | :---: | :--- |
+| [Project.plusOne](https://github.com/PlutoKeating/Project.plusOne) | 加一的 Agent 成长之路：从零开始的 AI 应用开发路线图 · [网站](https://plusone.arr2018.dpdns.org)<br>A growth path into AI application development | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.plusOne?style=social) | — |
+
+### 🏫 大学课程学习 · University Courses
+
+| 项目 Project | 简介 About | ⭐ | 语言 Language |
+| :--- | :--- | :---: | :--- |
+| [deepLearning](https://github.com/PlutoKeating/deepLearning) | 深度学习期末备考复习网站<br>Deep Learning exam prep & review site | ![Stars](https://img.shields.io/github/stars/PlutoKeating/deepLearning?style=social) | HTML |
+| [computerNetwork](https://github.com/PlutoKeating/computerNetwork) | 计算机网络期末备考复习网站<br>Computer Network exam prep & review site | ![Stars](https://img.shields.io/github/stars/PlutoKeating/computerNetwork?style=social) | Python |
+| [calculus_II](https://github.com/PlutoKeating/calculus_II) | 高等数学（二）备考复习网站<br>Calculus II exam prep & review site | ![Stars](https://img.shields.io/github/stars/PlutoKeating/calculus_II?style=social) | TypeScript |
+
+## 🤝 参与贡献 · Contributions
+
+> Fork 自他人的开源项目，我参与了其中小部分的贡献。
+> Forks of others' open source projects — I contributed a small part to each.
+
+| 项目 Project（Fork） | 原仓库与说明 Upstream & About | ⭐ |
+| :--- | :--- | :---: |
+| [mimocode-telegram-bot](https://github.com/morandot/mimocode-telegram-bot) | 原仓库 [morandot/mimocode-telegram-bot](https://github.com/morandot/mimocode-telegram-bot)：用 Telegram 控制 MiMoCode AI 编程代理<br>Upstream: control your MiMoCode AI coding agent from Telegram | ![Stars](https://img.shields.io/github/stars/PlutoKeating/mimocode-telegram-bot?style=social) |
+
+## 📊 统计 · Stats
+
+<p align="center">
+  <img alt="GitHub Streak" src="https://streak-stats.demolab.com/?user=PlutoKeating&hide_border=true&theme=tokyonight">
+</p>
+
+## 📬 联系 · Contact
+
+📧 [PlutoKeating@outlook.com](mailto:PlutoKeating@outlook.com)
+
+---
+
+<div align="center">
+  <sub>⭐ Thanks for visiting!</sub>
+</div>
