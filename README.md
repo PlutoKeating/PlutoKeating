@@ -48,11 +48,12 @@
 
 ## 📱 设备与固件 · Devices & Firmware
 
-> 安卓设备逆向与 Linux 刷机
-> Android device reverse engineering & Linux flashing
+> 安卓 / 嵌入式设备逆向与 Linux 移植
+> Android & embedded device reverse engineering & Linux porting
 
 | 项目 Project | 简介 About | ⭐ | 语言 Language |
 | :--- | :--- | :---: | :--- |
+| [Project.Villy](https://github.com/PlutoKeating/Project.Villy) | 小米初代扫地机器人（SDJQR01RR）逆向工程，刷入 Linux 变身可编程机器人底盘<br>Reverse engineer Xiaomi 1st-gen robot vacuum into a Linux robot chassis | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.Villy?style=social) | C |
 | [Project.GT](https://github.com/PlutoKeating/Project.GT) | 为 Samsung GT-I9082i 移植 Debian/Linux<br>Debian armhf port for the Samsung GT-I9082i | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.GT?style=social) | Shell |
 | [Project.MiPad2Xubuntu](https://github.com/PlutoKeating/Project.MiPad2Xubuntu) | 小米平板 2 刷入 Xubuntu 24.04 完整工具包与移植指南<br>Complete toolkit & porting guide for Xubuntu 24.04 on the Mi Pad 2 | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.MiPad2Xubuntu?style=social) | Shell |
 
