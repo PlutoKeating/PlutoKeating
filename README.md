@@ -69,6 +69,7 @@
 | :--- | :--- | :---: | :--- |
 | [quickToMyEnv](https://github.com/PlutoKeating/quickToMyEnv) | 在新电脑上快速重建熟悉的 Linux 环境<br>Rebuild your familiar Linux environment on any new machine | ![Stars](https://img.shields.io/github/stars/PlutoKeating/quickToMyEnv?style=social) | Shell |
 | [autoTmux](https://github.com/PlutoKeating/autoTmux) | 登录 Shell 时自动启用 tmux 环境<br>Automatically enable tmux on shell login | ![Stars](https://img.shields.io/github/stars/PlutoKeating/autoTmux?style=social) | Shell |
+| [Project.Pluto-WiFi](https://github.com/PlutoKeating/Project.Pluto-WiFi) | ZeroTier 私有网络管理看板：实时设备状态、心跳上报与 WebSocket 推送<br>ZeroTier private network dashboard with realtime device status, heartbeats & WebSocket push | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.Pluto-WiFi?style=social) | Python / TypeScript |
 
 ## 📚 学习与成长 · Learning & Growth
 
