@@ -78,7 +78,7 @@
 
 | 项目 Project | 简介 About | ⭐ | 语言 Language |
 | :--- | :--- | :---: | :--- |
-| [Project.Insight](https://github.com/PlutoKeating/Project.Insight) | 文献二次论述与解读 Wiki：对《Continual Learning in Transition》等 arXiv 论文进行多章解读、批判性评述与实践指导<br>Bilingual literature-review wiki with multi-chapter commentary, critical review & practice guides on arXiv papers | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.Insight?style=social) | HTML |
+| [Project.Insight](https://github.com/PlutoKeating/Project.Insight) | 文献二次论述与解读 Wiki：对《Continual Learning in Transition》等 arXiv 论文进行多章解读、批判性评述与实践指导 · [网站](https://insight.arr2018.dpdns.org)<br>Bilingual literature-review wiki with multi-chapter commentary, critical review & practice guides on arXiv papers | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.Insight?style=social) | HTML |
 | [Project.plusOne](https://github.com/PlutoKeating/Project.plusOne) | 加一的 Agent 成长之路：从零开始的 AI 应用开发路线图 · [网站](https://plusone.arr2018.dpdns.org)<br>A growth path into AI application development | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.plusOne?style=social) | — |
 
 ### 🏫 大学课程学习 · University Courses
