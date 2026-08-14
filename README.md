@@ -41,6 +41,7 @@
 
 | 项目 Project | 简介 About | ⭐ | 语言 Language |
 | :--- | :--- | :---: | :--- |
+| [dsh-lark-bot](https://github.com/PlutoKeating/dsh-lark-bot) | 把 DeepSeek Harness 接入飞书/Lark 的桥接器：扫码绑定、流式卡片、git worktree 项目工作区与 ACP 审批卡<br>Bridge DeepSeek Harness into Feishu/Lark with scan-to-bind, streaming cards, git-worktree workspaces & ACP approval cards | ![Stars](https://img.shields.io/github/stars/PlutoKeating/dsh-lark-bot?style=social) | TypeScript |
 | [Project.MilanoLibrary](https://github.com/PlutoKeating/Project.MilanoLibrary) | 无数据库的视频资料库与重组编译器<br>Database-less video vault & recomposition compiler | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.MilanoLibrary?style=social) | Python |
 | [Project.Terra](https://github.com/PlutoKeating/Project.Terra) | AI 全栈项目自动化系统 / 系统架构可视化画布<br>AI full-stack automation & system design canvas | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.Terra?style=social) | TypeScript |
 | [Project.superMindmap](https://github.com/PlutoKeating/Project.superMindmap) | Agent 驱动的智能思维导图编辑器<br>Agent-powered interactive mindmap editor | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.superMindmap?style=social) | Python |
@@ -77,6 +78,7 @@
 
 | 项目 Project | 简介 About | ⭐ | 语言 Language |
 | :--- | :--- | :---: | :--- |
+| [Project.Insight](https://github.com/PlutoKeating/Project.Insight) | 文献二次论述与解读 Wiki：对《Continual Learning in Transition》等 arXiv 论文进行多章解读、批判性评述与实践指导<br>Bilingual literature-review wiki with multi-chapter commentary, critical review & practice guides on arXiv papers | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.Insight?style=social) | HTML |
 | [Project.plusOne](https://github.com/PlutoKeating/Project.plusOne) | 加一的 Agent 成长之路：从零开始的 AI 应用开发路线图 · [网站](https://plusone.arr2018.dpdns.org)<br>A growth path into AI application development | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.plusOne?style=social) | — |
 
 ### 🏫 大学课程学习 · University Courses
