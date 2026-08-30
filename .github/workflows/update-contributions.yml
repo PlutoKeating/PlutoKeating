@@ -1,4 +1,4 @@
-name: Update contribution graph
+name: Update profile stats
 
 on:
   schedule:
@@ -31,12 +31,17 @@ jobs:
               -e 's/#767676/#7d8590/gi' \
               /tmp/chart.svg > contribution-dark.svg
 
+      - name: Update repository star counts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/update-stars.mjs
+
       - name: Commit and push if changed
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add contribution-light.svg contribution-dark.svg
+          git add README.md contribution-light.svg contribution-dark.svg
           if ! git diff --cached --quiet; then
-            git commit -m "chore: refresh contribution graph"
+            git commit -m "chore: refresh profile stats"
             git push
           fi
