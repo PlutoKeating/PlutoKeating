@@ -41,6 +41,8 @@
 
 | 项目 Project | 简介 About | ⭐ | 语言 Language |
 | :--- | :--- | :---: | :--- |
+| [Project.J-nify](https://github.com/PlutoKeating/Project.J-nify) | 在真正顺手的时刻，温和提醒那些“不急、但会忘”的小事 · [网站](https://j-nify.arr2018.dpdns.org)<br>A context-aware assistant that gently nudges you when the moment truly fits | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.J-nify?style=social) | TypeScript / Dart |
+| [TaiChiOS](https://github.com/PlutoKeating/TaiChiOS) | 基于 Debian、Cordis 与 DeepSeek Harness 构建的 AI 原生操作系统 · [网站](https://taichios.arr2018.dpdns.org)<br>An AI-native operating system built on Debian, Cordis & DeepSeek Harness | ![Stars](https://img.shields.io/github/stars/PlutoKeating/TaiChiOS?style=social) | TypeScript |
 | [dsh-lark-bot](https://github.com/PlutoKeating/dsh-lark-bot) | 把 DeepSeek Harness 接入飞书/Lark 的桥接器：扫码绑定、流式卡片、git worktree 项目工作区与 ACP 审批卡<br>Bridge DeepSeek Harness into Feishu/Lark with scan-to-bind, streaming cards, git-worktree workspaces & ACP approval cards | ![Stars](https://img.shields.io/github/stars/PlutoKeating/dsh-lark-bot?style=social) | TypeScript |
 | [Project.MilanoLibrary](https://github.com/PlutoKeating/Project.MilanoLibrary) | 无数据库的视频资料库与重组编译器<br>Database-less video vault & recomposition compiler | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.MilanoLibrary?style=social) | Python |
 | [Project.Terra](https://github.com/PlutoKeating/Project.Terra) | AI 全栈项目自动化系统 / 系统架构可视化画布<br>AI full-stack automation & system design canvas | ![Stars](https://img.shields.io/github/stars/PlutoKeating/Project.Terra?style=social) | TypeScript |
@@ -96,7 +98,7 @@
 
 | 项目 Project（Fork） | 原仓库与说明 Upstream & About | ⭐ |
 | :--- | :--- | :---: |
-| [mimocode-telegram-bot](https://github.com/morandot/mimocode-telegram-bot) | 原仓库 [morandot/mimocode-telegram-bot](https://github.com/morandot/mimocode-telegram-bot)：用 Telegram 控制 MiMoCode AI 编程代理<br>Upstream: control your MiMoCode AI coding agent from Telegram | ![Stars](https://img.shields.io/github/stars/PlutoKeating/mimocode-telegram-bot?style=social) |
+| [mimocode-telegram-bot](https://github.com/morandot/mimocode-telegram-bot) | 原仓库 [morandot/mimocode-telegram-bot](https://github.com/morandot/mimocode-telegram-bot)：用 Telegram 控制 MiMoCode AI 编程代理<br>Upstream: control your MiMoCode AI coding agent from Telegram | ![Stars](https://img.shields.io/github/stars/morandot/mimocode-telegram-bot?style=social) |
 
 ## 📊 统计 · Stats
 
