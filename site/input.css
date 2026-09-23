@@ -13,7 +13,7 @@
 }
 
 @layer base {
-  html { scroll-behavior: smooth; color-scheme: dark; }
+  html { scroll-behavior: smooth; scroll-padding-top: 6rem; color-scheme: dark; }
   body { min-width: 280px; }
   ::selection { background: #ff4000; color: #fff; }
   :focus-visible { outline: 2px solid #ff7043; outline-offset: 4px; }
@@ -61,3 +61,4 @@
 @keyframes portrait-sweep { 0%,20% { transform: translateY(0); } 70%,100% { transform: translateY(650%); } }
 @keyframes glitch { 0%,94%,96%,98%,100% { opacity: 0; transform: translateX(0); } 95%,97% { opacity: .5; transform: translateX(5px); } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+@media (min-width: 1024px) { html { scroll-padding-top: 7rem; } }
