@@ -8,10 +8,12 @@ const template = await readFile(path.join(root, 'site', 'index.html'), 'utf8');
 const output = path.join(root, 'dist');
 
 const sections = [
-  { id: 'experience', marker: '## 🚀', label: 'LIVE PROJECTS', title: '即刻体验', index: '01', note: '先看得见，再深入了解' },
-  { id: 'upcoming', marker: '## 🧪', label: 'COMING SOON', title: '正在开放', index: '02', note: '公开入口筹备中' },
-  { id: 'engineering', marker: '## 🛠', label: 'ENGINEERING & SOURCE', title: '源码与工程实践', index: '03', note: '代码、硬件与移植经验' },
-  { id: 'contributions', marker: '## 🤝', label: 'OPEN SOURCE', title: '参与贡献', index: '04', note: '注明上游与自己的参与' },
+  { id: 'experience', marker: '## 🚀', label: 'LIVE PROJECTS', title: '即刻体验', index: '01', note: '打开产品，直接体验' },
+  { id: 'tools', marker: '## 🛠', label: 'PRODUCTIVITY & TOOLS', title: '效率和工具', index: '02', note: '实用工具与开源方案' },
+  { id: 'learning', marker: '## 📚', label: 'LEARNING', title: '学习类', index: '03', note: '交互式课程与学习资料' },
+  { id: 'hardware', marker: '## 🔧', label: 'HARDWARE & SOURCE', title: '技术开源与源码分享', index: '04', note: '设备改造与系统移植' },
+  { id: 'embedded', marker: '## 💡', label: 'EMBEDDED DEVELOPMENT', title: '嵌入式开发', index: '05', note: '硬件交互实践' },
+  { id: 'contributions', marker: '## 🤝', label: 'COLLABORATIVE PROJECTS', title: '共创项目', index: '06', note: '注明上游与自己的参与' },
 ];
 
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
@@ -27,7 +29,7 @@ function safeUrl(value) {
 function inline(value) {
   return escapeHtml(value)
     .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, (_match, label, url) =>
-      `<a href="${safeUrl(url)}" target="_blank" rel="noopener noreferrer">${label}<span aria-hidden="true"> ↗</span></a>`)
+      `<a class="relative z-20 text-orange hover:text-flare" href="${safeUrl(url)}" target="_blank" rel="noopener noreferrer">${label}<span aria-hidden="true"> ↗</span></a>`)
     .replace(/&lt;br\s*\/?&gt;/gi, '<br>');
 }
 
@@ -37,8 +39,10 @@ function parseRows(block, section) {
     const match = cells[0].match(/^\[([^\]]+)\]\((https?:\/\/[^)]+)\)$/);
     const starMatch = cells[2].match(/⭐\s*\*\*(\d+)\*\*/);
     if (!cells[0] || (!starMatch && cells[2] !== '—')) throw new Error(`Cannot parse project row: ${line}`);
+    const source = cells[1].match(/ · \[源码\]\((https?:\/\/[^)]+)\)/);
     return {
-      name: match?.[1] ?? cells[0], url: match?.[2] ?? null, description: cells[1],
+      name: match?.[1] ?? cells[0], url: match?.[2] ?? null, sourceUrl: source?.[1] ?? null,
+      description: cells[1].replace(/ · \[源码\]\(https?:\/\/[^)]+\)/, ''),
       stars: starMatch ? Number(starMatch[1]) : null, language: section.id === 'contributions' ? 'Open Source' : cells[3],
       section: section.id,
     };
@@ -54,22 +58,24 @@ for (const [index, section] of sections.entries()) {
 }
 
 const allProjects = sections.flatMap((section) => section.projects);
-const featured = new Set(['dsh-lark-bot', '走不走 · GoGoGo', 'Project.BeenHere · 来过']);
+const featured = new Set(['GoGoGo · 走不走', 'BeenHere · 来过', 'J-nify']);
 
 function projectCard(project, number) {
-  const website = project.description.match(/· \[网站\]\((https?:\/\/[^)]+)\)/);
-  const description = project.description.replace(/ · \[网站\]\(https?:\/\/[^)]+\)/, '');
-  const projectName = project.url
-    ? `<a class="transition-colors hover:text-orange" href="${safeUrl(project.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(project.name)}<span class="text-sm text-orange" aria-hidden="true"> ↗</span></a>`
-    : `<span>${escapeHtml(project.name)}</span>`;
+  const description = project.description;
+  const projectName = `<span>${escapeHtml(project.name)}<span class="text-sm text-orange" aria-hidden="true"> ↗</span></span>`;
   const popularity = project.stars === null
-    ? (project.url ? 'PRIVATE SOURCE' : 'PREVIEW')
+    ? 'PRIVATE SOURCE'
     : `✦ ${project.stars}`;
+  const status = project.name === 'WordToFlush' ? '即将上线' : project.name === 'Insight' ? '域名配置中' : null;
+  const sourceLink = project.sourceUrl
+    ? `<a class="relative z-20 shrink-0 text-orange transition-colors hover:text-flare focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange" href="${safeUrl(project.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="查看 ${escapeHtml(project.name)} 的源码">源码 <span aria-hidden="true">↗</span></a>`
+    : '<span class="text-white/45">源码未公开</span>';
   return `<article class="project-card @container group relative flex min-h-60 flex-col overflow-hidden border border-white/15 bg-[#292929] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-orange/70 hover:shadow-[0_18px_55px_rgba(255,64,0,.12)] sm:p-6${featured.has(project.name) ? ' project-card--featured' : ''}" data-search="${escapeHtml(`${project.name} ${description.replace(/<[^>]+>/g, ' ')} ${project.language}`.toLowerCase())}">
-    <div class="flex items-center justify-between gap-3 font-mono text-[10px] tracking-widest"><span class="text-white/45">${String(number).padStart(2, '0')} / ${escapeHtml(project.section.toUpperCase())}</span><span class="text-orange">${popularity}</span></div>
+    ${project.url ? `<a class="absolute inset-0 z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-orange" href="${safeUrl(project.url)}" target="_blank" rel="noopener noreferrer" aria-label="打开 ${escapeHtml(project.name)}${status ? `（${status}）` : ''}"></a>` : ''}
+    <div class="flex items-center justify-between gap-3 font-mono text-[10px] tracking-widest"><span class="text-white/45">${String(number).padStart(2, '0')} / ${escapeHtml(project.section.toUpperCase())}</span><span class="text-orange">${status ?? popularity}</span></div>
     <h3 class="mt-6 font-display text-[clamp(1.1rem,6cqw,1.5rem)] leading-snug font-semibold tracking-tight break-words">${projectName}</h3>
     <p class="card-description mt-3 mb-6 text-xs leading-6 text-white/65">${inline(description)}</p>
-    <div class="mt-auto flex flex-wrap items-center justify-between gap-2 border-t border-white/15 pt-3 font-mono text-[10px]"><span class="text-white/60"><span class="mr-2 text-orange">●</span>${escapeHtml(project.language)}</span>${website ? `<a class="text-orange hover:text-flare" href="${safeUrl(website[1])}" target="_blank" rel="noopener noreferrer">访问网站 <span aria-hidden="true">↗</span></a>` : ''}</div>
+    <div class="mt-auto flex flex-wrap items-center justify-between gap-2 border-t border-white/15 pt-3 font-mono text-[10px]"><span class="text-white/60"><span class="mr-2 text-orange">●</span>${escapeHtml(project.language)}</span>${sourceLink}</div>
   </article>`;
 }
 
