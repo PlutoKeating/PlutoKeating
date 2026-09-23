@@ -8,12 +8,10 @@ const template = await readFile(path.join(root, 'site', 'index.html'), 'utf8');
 const output = path.join(root, 'dist');
 
 const sections = [
-  { id: 'ai', marker: '## 🤖', label: 'AI PROJECTS', title: 'AI 项目', index: '01', note: '从智能助手到原生操作系统' },
-  { id: 'devices', marker: '## 📱', label: 'DEVICES & FIRMWARE', title: '设备与固件', index: '02', note: '给旧设备写入新的可能' },
-  { id: 'embedded', marker: '## ⚙️', label: 'EMBEDDED DEVELOPMENT', title: '嵌入式开发', index: '03', note: '让代码与物理世界相遇' },
-  { id: 'utilities', marker: '## 🛠', label: 'UTILITIES', title: '效率工具', index: '04', note: '为日常工作减少摩擦' },
-  { id: 'learning', marker: '## 📚', label: 'LEARNING & GROWTH', title: '学习与成长', index: '05', note: '保持好奇，持续构建' },
-  { id: 'contributions', marker: '## 🤝', label: 'OPEN SOURCE', title: '参与贡献', index: '06', note: 'Fork 自他人的项目，参与其中小部分贡献' },
+  { id: 'experience', marker: '## 🚀', label: 'LIVE PROJECTS', title: '即刻体验', index: '01', note: '先看得见，再深入了解' },
+  { id: 'upcoming', marker: '## 🧪', label: 'COMING SOON', title: '正在开放', index: '02', note: '公开入口筹备中' },
+  { id: 'engineering', marker: '## 🛠', label: 'ENGINEERING & SOURCE', title: '源码与工程实践', index: '03', note: '代码、硬件与移植经验' },
+  { id: 'contributions', marker: '## 🤝', label: 'OPEN SOURCE', title: '参与贡献', index: '04', note: '注明上游与自己的参与' },
 ];
 
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
@@ -34,15 +32,14 @@ function inline(value) {
 }
 
 function parseRows(block, section) {
-  return block.split('\n').filter((line) => /^\| \[/.test(line)).map((line) => {
+  return block.split('\n').filter((line) => line.startsWith('| ') && !line.startsWith('| 项目') && !line.startsWith('| :')).map((line) => {
     const cells = line.split('|').slice(1, -1).map((cell) => cell.trim());
     const match = cells[0].match(/^\[([^\]]+)\]\((https?:\/\/[^)]+)\)$/);
-    if (!match) throw new Error(`Cannot parse project row: ${line}`);
     const starMatch = cells[2].match(/⭐\s*\*\*(\d+)\*\*/);
-    if (!starMatch) throw new Error(`Cannot parse stars: ${line}`);
+    if (!cells[0] || (!starMatch && cells[2] !== '—')) throw new Error(`Cannot parse project row: ${line}`);
     return {
-      name: match[1], url: match[2], description: cells[1],
-      stars: Number(starMatch[1]), language: section.id === 'contributions' ? 'Open Source' : cells[3],
+      name: match?.[1] ?? cells[0], url: match?.[2] ?? null, description: cells[1],
+      stars: starMatch ? Number(starMatch[1]) : null, language: section.id === 'contributions' ? 'Open Source' : cells[3],
       section: section.id,
     };
   });
@@ -57,18 +54,20 @@ for (const [index, section] of sections.entries()) {
 }
 
 const allProjects = sections.flatMap((section) => section.projects);
-const featured = new Set(['Project.J-nify', 'TaiChiOS', 'dsh-lark-bot']);
+const featured = new Set(['dsh-lark-bot', '走不走 · GoGoGo', 'Project.BeenHere · 来过']);
 
 function projectCard(project, number) {
   const website = project.description.match(/· \[网站\]\((https?:\/\/[^)]+)\)/);
   const description = project.description.replace(/ · \[网站\]\(https?:\/\/[^)]+\)/, '');
-  const track = project.section === 'learning'
-    ? `<span class="mt-4 font-mono text-[9px] tracking-widest text-ember">${['Project.Insight', 'Project.plusOne'].includes(project.name) ? 'PROFESSIONAL SKILLS' : 'UNIVERSITY COURSES'}</span>`
-    : '';
+  const projectName = project.url
+    ? `<a class="transition-colors hover:text-orange" href="${safeUrl(project.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(project.name)}<span class="text-sm text-orange" aria-hidden="true"> ↗</span></a>`
+    : `<span>${escapeHtml(project.name)}</span>`;
+  const popularity = project.stars === null
+    ? (project.url ? 'PRIVATE SOURCE' : 'PREVIEW')
+    : `✦ ${project.stars}`;
   return `<article class="project-card @container group relative flex min-h-60 flex-col overflow-hidden border border-white/15 bg-[#292929] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-orange/70 hover:shadow-[0_18px_55px_rgba(255,64,0,.12)] sm:p-6${featured.has(project.name) ? ' project-card--featured' : ''}" data-search="${escapeHtml(`${project.name} ${description.replace(/<[^>]+>/g, ' ')} ${project.language}`.toLowerCase())}">
-    <div class="flex items-center justify-between gap-3 font-mono text-[10px] tracking-widest"><span class="text-white/45">${String(number).padStart(2, '0')} / ${escapeHtml(project.section.toUpperCase())}</span><span class="text-orange" aria-label="${project.stars} stars">✦ ${project.stars}</span></div>
-    ${track}
-    <h3 class="mt-6 font-display text-[clamp(1.1rem,6cqw,1.5rem)] leading-snug font-semibold tracking-tight break-words"><a class="transition-colors hover:text-orange" href="${safeUrl(project.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(project.name)}<span class="text-sm text-orange" aria-hidden="true"> ↗</span></a></h3>
+    <div class="flex items-center justify-between gap-3 font-mono text-[10px] tracking-widest"><span class="text-white/45">${String(number).padStart(2, '0')} / ${escapeHtml(project.section.toUpperCase())}</span><span class="text-orange">${popularity}</span></div>
+    <h3 class="mt-6 font-display text-[clamp(1.1rem,6cqw,1.5rem)] leading-snug font-semibold tracking-tight break-words">${projectName}</h3>
     <p class="card-description mt-3 mb-6 text-xs leading-6 text-white/65">${inline(description)}</p>
     <div class="mt-auto flex flex-wrap items-center justify-between gap-2 border-t border-white/15 pt-3 font-mono text-[10px]"><span class="text-white/60"><span class="mr-2 text-orange">●</span>${escapeHtml(project.language)}</span>${website ? `<a class="text-orange hover:text-flare" href="${safeUrl(website[1])}" target="_blank" rel="noopener noreferrer">访问网站 <span aria-hidden="true">↗</span></a>` : ''}</div>
   </article>`;
