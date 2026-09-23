@@ -1,0 +1,13 @@
+{
+  "name": "plutokeating-profile-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-site.mjs && tailwindcss -i site/input.css -o dist/style.css --minify",
+    "dev": "npm run build && python3 -m http.server 4173 -d dist"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "tailwindcss": "^4.3.3"
+  }
+}
