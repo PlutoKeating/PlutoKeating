@@ -66,7 +66,7 @@ function projectCard(project, number) {
   const popularity = project.stars === null
     ? 'PRIVATE SOURCE'
     : `✦ ${project.stars}`;
-  const status = project.name === 'WordToFlush' ? '即将上线' : project.name === 'Insight' ? '域名配置中' : null;
+  const status = project.name === 'Insight' ? '域名配置中' : null;
   const sourceLink = project.sourceUrl
     ? `<a class="relative z-20 shrink-0 text-orange transition-colors hover:text-flare focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange" href="${safeUrl(project.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="查看 ${escapeHtml(project.name)} 的源码">源码 <span aria-hidden="true">↗</span></a>`
     : '<span class="text-white/45">源码未公开</span>';

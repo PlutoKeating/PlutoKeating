@@ -41,15 +41,15 @@
 
 ## 🚀 即刻体验 · Live Projects
 
-> 直接打开产品前端。WordToFlush 的站点尚未上线，链接先使用计划中的正式域名。
-> Open a product directly. WordToFlush's planned URL is listed ahead of launch.
+> 直接打开产品前端。
+> Open a product directly.
 
 | 项目 Project | 简介 About | ⭐ | 技术 Stack |
 | :--- | :--- | :---: | :--- |
 | [GoGoGo · 走不走](https://gogogo.plutokeating.beer) | 根据位置、场景与偏好生成可执行的出行计划；源码暂未公开<br>An AI outing planner with a public Web experience | — | TypeScript / Vue |
 | [BeenHere · 来过](https://beenhere.plutokeating.beer) | 保存普通人的真实采访，让记录可以认领、修订与撤回 · [源码](https://github.com/PlutoKeating/Project.BeenHere)<br>A public archive of everyday conversations | <!-- stars:PlutoKeating/Project.BeenHere -->⭐ **0**<!-- /stars --> | TypeScript |
 | [J-nify](https://j-nify.plutokeating.beer) | 在顺手的时刻提醒那些“不急、但会忘”的小事，提供手机 App 下载 · [源码](https://github.com/PlutoKeating/Project.J-nify)<br>A context-aware mobile assistant | <!-- stars:PlutoKeating/Project.J-nify -->⭐ **0**<!-- /stars --> | TypeScript / Dart |
-| [WordToFlush](https://wordtoflush.plutokeating.beer) | 尚未上线 · AI 驱动的直播弹幕猜词游戏 · [源码](https://github.com/PlutoKeating/Project.WordToFlush)<br>AI-powered live chat word guessing game; product site coming soon | <!-- stars:PlutoKeating/Project.WordToFlush -->⭐ **0**<!-- /stars --> | Python / TypeScript |
+| [WordToFlush](https://wtf.plutokeating.beer) | AI 语义猜词网页游戏：单人练习、房号联机或随机匹配，猜得越近热度越高 · [源码](https://github.com/PlutoKeating/Project.WordToFlush)<br>A semantic word-guessing web game — solo, private rooms or random matchmaking | <!-- stars:PlutoKeating/Project.WordToFlush -->⭐ **0**<!-- /stars --> | TypeScript / Vue |
 
 ## 🛠 效率和工具 · Productivity & Tools
 
