@@ -20,3 +20,13 @@ search?.addEventListener('input', () => {
 });
 
 document.querySelector('#year').textContent = new Date().getFullYear();
+
+// 贡献墙在窄屏上需要横向滚动时，默认显示最右侧（最近的几个月）
+const activityChart = document.querySelector('.activity-chart');
+const chartImage = activityChart?.querySelector('img');
+const scrollChartToLatest = () => {
+  if (activityChart) activityChart.scrollLeft = activityChart.scrollWidth;
+};
+if (chartImage?.complete) scrollChartToLatest();
+else chartImage?.addEventListener('load', scrollChartToLatest, { once: true });
+window.addEventListener('resize', scrollChartToLatest);
