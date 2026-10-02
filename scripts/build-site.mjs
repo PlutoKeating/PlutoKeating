@@ -58,7 +58,7 @@ for (const [index, section] of sections.entries()) {
 }
 
 const allProjects = sections.flatMap((section) => section.projects);
-const featured = new Set(['GoGoGo · 走不走', 'BeenHere · 来过', 'J-nify']);
+const featured = new Set(['GoGoGo · 走不走', 'BeenHere · 来过']);
 
 function projectCard(project, number) {
   const description = project.description;

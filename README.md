@@ -48,8 +48,8 @@
 | :--- | :--- | :---: | :--- |
 | [GoGoGo · 走不走](https://gogogo.plutokeating.beer) | 根据位置、场景与偏好生成可执行的出行计划；源码暂未公开<br>An AI outing planner with a public Web experience | — | TypeScript / Vue |
 | [BeenHere · 来过](https://beenhere.plutokeating.beer) | 保存普通人的真实采访，让记录可以认领、修订与撤回 · [源码](https://github.com/PlutoKeating/Project.BeenHere)<br>A public archive of everyday conversations | <!-- stars:PlutoKeating/Project.BeenHere -->⭐ **0**<!-- /stars --> | TypeScript |
-| [J-nify](https://j-nify.plutokeating.beer) | 在顺手的时刻提醒那些“不急、但会忘”的小事，提供手机 App 下载 · [源码](https://github.com/PlutoKeating/Project.J-nify)<br>A context-aware mobile assistant | <!-- stars:PlutoKeating/Project.J-nify -->⭐ **0**<!-- /stars --> | TypeScript / Dart |
 | [WordToFlush](https://wtf.plutokeating.beer) | AI 语义猜词网页游戏：单人练习、房号联机或随机匹配，猜得越近热度越高 · [源码](https://github.com/PlutoKeating/Project.WordToFlush)<br>A semantic word-guessing web game — solo, private rooms or random matchmaking | <!-- stars:PlutoKeating/Project.WordToFlush -->⭐ **1**<!-- /stars --> | TypeScript / Vue |
+| [Up2Down · 奔跑即故障](https://up2down.plutokeating.beer) | 多人绘画赛跑派对游戏：分部位接力画出专属小马，腿长比例直接决定奔跑速度，输入房号即可联机竞速 · [源码](https://github.com/Hfy1313113/Up2Down)<br>A multiplayer draw-your-own-steed racing game where leg proportions decide the speed | <!-- stars:Hfy1313113/Up2Down -->⭐ **1**<!-- /stars --> | TypeScript / React / Three.js |
 
 ## 🛠 效率和工具 · Productivity & Tools
 
