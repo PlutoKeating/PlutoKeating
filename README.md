@@ -58,7 +58,7 @@
 
 | 项目 Project | 简介 About | ⭐ | 技术 Stack |
 | :--- | :--- | :---: | :--- |
-| [dsh-lark-bot](https://dsh-lark-bot.plutokeating.beer) | 把 DeepSeek Harness 接入飞书：扫码绑定、流式卡片与并行任务 · [源码](https://github.com/PlutoKeating/dsh-lark-bot)<br>Use a coding agent directly from Feishu/Lark | <!-- stars:PlutoKeating/dsh-lark-bot -->⭐ **41**<!-- /stars --> | TypeScript |
+| [dsh-lark-bot](https://dsh-lark-bot.plutokeating.beer) | 把 DeepSeek Harness 接入飞书：扫码绑定、流式卡片与并行任务 · [源码](https://github.com/PlutoKeating/dsh-lark-bot)<br>Use a coding agent directly from Feishu/Lark | <!-- stars:PlutoKeating/dsh-lark-bot -->⭐ **40**<!-- /stars --> | TypeScript |
 | [Milano Library](https://github.com/PlutoKeating/Project.MilanoLibrary) | 无数据库的视频资料库与重组编译器 · [源码](https://github.com/PlutoKeating/Project.MilanoLibrary)<br>Database-less video vault and recomposition compiler | <!-- stars:PlutoKeating/Project.MilanoLibrary -->⭐ **2**<!-- /stars --> | Python |
 | [PlutoWiFi](https://github.com/PlutoKeating/Project.Pluto-WiFi) | ZeroTier 私有网络管理看板的开源实现 · [源码](https://github.com/PlutoKeating/Project.Pluto-WiFi)<br>Open-source private network dashboard | <!-- stars:PlutoKeating/Project.Pluto-WiFi -->⭐ **0**<!-- /stars --> | Python / TypeScript |
 | [quickToMyEnv](https://github.com/PlutoKeating/quickToMyEnv) | 在新电脑上快速重建熟悉的 Linux 环境 · [源码](https://github.com/PlutoKeating/quickToMyEnv)<br>Rebuild a familiar Linux environment | <!-- stars:PlutoKeating/quickToMyEnv -->⭐ **1**<!-- /stars --> | Shell |
