@@ -58,6 +58,7 @@
 
 | 项目 Project | 简介 About | ⭐ | 技术 Stack |
 | :--- | :--- | :---: | :--- |
+| [Quetzal](https://quetzal.plutokeating.beer) | 让 AI agent 住进旧手机：自主作息、感知身体，记忆通过 Git 跨设备延续 · [源码](https://github.com/PlutoKeating/Project.Quetzal)<br>An embodied AI agent runtime with a body clock and Git-synced memory across devices | <!-- stars:PlutoKeating/Project.Quetzal -->⭐ **2**<!-- /stars --> | TypeScript / Dart |
 | [dsh-lark-bot](https://dsh-lark-bot.plutokeating.beer) | 把 DeepSeek Harness 接入飞书：扫码绑定、流式卡片与并行任务 · [源码](https://github.com/PlutoKeating/dsh-lark-bot)<br>Use a coding agent directly from Feishu/Lark | <!-- stars:PlutoKeating/dsh-lark-bot -->⭐ **40**<!-- /stars --> | TypeScript |
 | [Milano Library](https://github.com/PlutoKeating/Project.MilanoLibrary) | 无数据库的视频资料库与重组编译器 · [源码](https://github.com/PlutoKeating/Project.MilanoLibrary)<br>Database-less video vault and recomposition compiler | <!-- stars:PlutoKeating/Project.MilanoLibrary -->⭐ **2**<!-- /stars --> | Python |
 | [PlutoWiFi](https://github.com/PlutoKeating/Project.Pluto-WiFi) | ZeroTier 私有网络管理看板的开源实现 · [源码](https://github.com/PlutoKeating/Project.Pluto-WiFi)<br>Open-source private network dashboard | <!-- stars:PlutoKeating/Project.Pluto-WiFi -->⭐ **0**<!-- /stars --> | Python / TypeScript |
