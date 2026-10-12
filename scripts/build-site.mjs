@@ -29,7 +29,7 @@ function safeUrl(value) {
 function inline(value) {
   return escapeHtml(value)
     .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, (_match, label, url) =>
-      `<a class="relative z-20 text-orange hover:text-flare" href="${safeUrl(url)}" target="_blank" rel="noopener noreferrer">${label}<span aria-hidden="true"> ↗</span></a>`)
+      `<a class="relative z-20 text-accent hover:text-accent-hover" href="${safeUrl(url)}" target="_blank" rel="noopener noreferrer">${label}<span aria-hidden="true"> ↗</span></a>`)
     .replace(/&lt;br\s*\/?&gt;/gi, '<br>');
 }
 
@@ -62,25 +62,25 @@ const featured = new Set(['GoGoGo · 走不走', 'BeenHere · 来过']);
 
 function projectCard(project, number) {
   const description = project.description;
-  const projectName = `<span>${escapeHtml(project.name)}<span class="text-sm text-orange" aria-hidden="true"> ↗</span></span>`;
+  const projectName = `<span>${escapeHtml(project.name)}<span class="text-sm text-accent" aria-hidden="true"> ↗</span></span>`;
   const popularity = project.stars === null
     ? 'PRIVATE SOURCE'
     : `✦ ${project.stars}`;
   const status = project.name === 'Insight' ? '域名配置中' : null;
   const sourceLink = project.sourceUrl
-    ? `<a class="relative z-20 shrink-0 text-orange transition-colors hover:text-flare focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-orange" href="${safeUrl(project.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="查看 ${escapeHtml(project.name)} 的源码">源码 <span aria-hidden="true">↗</span></a>`
-    : '<span class="text-white/45">源码未公开</span>';
-  return `<article class="project-card @container group relative flex min-h-60 flex-col overflow-hidden border border-white/15 bg-[#292929] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-orange/70 hover:shadow-[0_18px_55px_rgba(255,64,0,.12)] sm:p-6${featured.has(project.name) ? ' project-card--featured' : ''}" data-search="${escapeHtml(`${project.name} ${description.replace(/<[^>]+>/g, ' ')} ${project.language}`.toLowerCase())}">
-    ${project.url ? `<a class="absolute inset-0 z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-orange" href="${safeUrl(project.url)}" target="_blank" rel="noopener noreferrer" aria-label="打开 ${escapeHtml(project.name)}${status ? `（${status}）` : ''}"></a>` : ''}
-    <div class="flex items-center justify-between gap-3 font-mono text-[10px] tracking-widest"><span class="text-white/45">${String(number).padStart(2, '0')} / ${escapeHtml(project.section.toUpperCase())}</span><span class="text-orange">${status ?? popularity}</span></div>
-    <h3 class="mt-6 font-display text-[clamp(1.1rem,6cqw,1.5rem)] leading-snug font-semibold tracking-tight break-words">${projectName}</h3>
-    <p class="card-description mt-3 mb-6 text-xs leading-6 text-white/65">${inline(description)}</p>
-    <div class="mt-auto flex flex-wrap items-center justify-between gap-2 border-t border-white/15 pt-3 font-mono text-[10px]"><span class="text-white/60"><span class="mr-2 text-orange">●</span>${escapeHtml(project.language)}</span>${sourceLink}</div>
+    ? `<a class="relative z-20 shrink-0 text-accent transition-colors hover:text-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent" href="${safeUrl(project.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="查看 ${escapeHtml(project.name)} 的源码">源码 <span aria-hidden="true">↗</span></a>`
+    : '<span class="text-fg-subtle">源码未公开</span>';
+  return `<article class="project-card @container group relative flex min-h-60 flex-col overflow-hidden border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_18px_55px_color-mix(in srgb, var(--color-accent) 12%, transparent)] sm:p-6${featured.has(project.name) ? ' project-card--featured' : ''}" data-search="${escapeHtml(`${project.name} ${description.replace(/<[^>]+>/g, ' ')} ${project.language}`.toLowerCase())}">
+    ${project.url ? `<a class="absolute inset-0 z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-accent" href="${safeUrl(project.url)}" target="_blank" rel="noopener noreferrer" aria-label="打开 ${escapeHtml(project.name)}${status ? `（${status}）` : ''}"></a>` : ''}
+    <div class="flex items-center justify-between gap-3 font-mono text-[10px] tracking-widest"><span class="text-fg-subtle">${String(number).padStart(2, '0')} / ${escapeHtml(project.section.toUpperCase())}</span><span class="text-accent">${status ?? popularity}</span></div>
+    <h3 class="mt-6 font-sans text-[clamp(1.1rem,6cqw,1.5rem)] leading-snug font-semibold tracking-tight break-words">${projectName}</h3>
+    <p class="card-description mt-3 mb-6 text-xs leading-6 text-fg-muted">${inline(description)}</p>
+    <div class="mt-auto flex flex-wrap items-center justify-between gap-2 border-t border-border pt-3 font-mono text-[10px]"><span class="text-fg-muted"><span class="mr-2 text-accent">●</span>${escapeHtml(project.language)}</span>${sourceLink}</div>
   </article>`;
 }
 
 const sectionHtml = sections.map((section) => `<section class="project-section mb-20 scroll-mt-8" id="${section.id}" aria-labelledby="heading-${section.id}">
-  <div class="mb-6 flex flex-col justify-between gap-3 border-b border-white/25 pb-5 sm:flex-row sm:items-end"><div><div class="font-mono text-[11px] tracking-[.16em] text-orange"><span class="font-bold">${section.index}</span> / ${section.label}</div><h2 class="mt-3 font-display text-[clamp(2.25rem,5vw,3.5rem)] leading-tight font-bold tracking-[-.06em]" id="heading-${section.id}">${section.title}<span class="text-orange">.</span></h2></div><p class="text-sm text-white/50">${section.note}</p></div>
+  <div class="mb-6 flex flex-col justify-between gap-3 border-b border-border-strong pb-5 sm:flex-row sm:items-end"><div><div class="font-mono text-[11px] tracking-[.16em] text-accent"><span class="font-bold">${section.index}</span> / ${section.label}</div><h2 class="mt-3 font-sans text-[clamp(2.25rem,5vw,3.5rem)] leading-tight font-bold tracking-[-.06em]" id="heading-${section.id}">${section.title}<span class="text-accent">.</span></h2></div><p class="text-sm text-fg-subtle">${section.note}</p></div>
   <div class="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">${section.projects.map((project, index) => projectCard(project, index + 1)).join('\n')}</div>
 </section>`).join('\n');
 
@@ -96,15 +96,19 @@ for (const file of ['app.js', 'favicon.svg', 'pluto-portrait.jpg', '_headers']) 
 }
 const contributionSvg = await readFile(path.join(root, 'contribution-dark.svg'), 'utf8');
 const contributionColors = new Map([
-  ['#161b22', '#383838'],
-  ['#0e4429', '#57372f'],
-  ['#006d32', '#91412d'],
-  ['#26a641', '#d45532'],
-  ['#39d353', '#ff805a'],
-  ['#7d8590', '#b5b5b5'],
+  ['#161b22', '#17181c'],
+  ['#0e4429', '#3a2a1f'],
+  ['#006d32', '#6b4527'],
+  ['#26a641', '#a5623f'],
+  ['#39d353', '#f0a35e'],
+  ['#7d8590', '#6f6b65'],
 ]);
 const siteContributionSvg = contributionSvg.replace(/#[0-9a-f]{6}/gi, (color) =>
   contributionColors.get(color.toLowerCase()) ?? color,
 );
 await writeFile(path.join(output, 'contribution-site.svg'), siteContributionSvg);
+await mkdir(path.join(output, 'fonts'), { recursive: true });
+for (const file of ['InterVariable.woff2', 'InterVariable-Italic.woff2']) {
+  await copyFile(path.join(root, 'site', 'fonts', file), path.join(output, 'fonts', file));
+}
 console.log(`Built ${allProjects.length} projects from README.md into dist/`);
