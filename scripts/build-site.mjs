@@ -91,7 +91,7 @@ const html = template
 
 await mkdir(output, { recursive: true });
 await writeFile(path.join(output, 'index.html'), html);
-for (const file of ['app.js', 'favicon.svg', 'pluto-portrait.jpg', '_headers']) {
+for (const file of ['app.js', 'favicon.ico', 'pluto-portrait.jpg', '_headers']) {
   await copyFile(path.join(root, 'site', file), path.join(output, file));
 }
 const contributionSvg = await readFile(path.join(root, 'contribution-dark.svg'), 'utf8');
