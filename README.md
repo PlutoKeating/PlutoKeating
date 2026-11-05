@@ -87,7 +87,7 @@
 | 项目 Project | 简介 About | ⭐ | 技术 Stack |
 | :--- | :--- | :---: | :--- |
 | [Project.Villy](https://github.com/PlutoKeating/Project.Villy) | 将小米初代扫地机器人改造为可运行 Linux 的机器人底盘 · [源码](https://github.com/PlutoKeating/Project.Villy)<br>Linux robot chassis from a first-generation robot vacuum | <!-- stars:PlutoKeating/Project.Villy -->⭐ **0**<!-- /stars --> | C |
-| [Project.MiPad2Xubuntu](https://github.com/PlutoKeating/Project.MiPad2Xubuntu) | 小米平板 2 的 Xubuntu 24.04 移植工具与指南 · [源码](https://github.com/PlutoKeating/Project.MiPad2Xubuntu)<br>Xubuntu 24.04 port and toolkit for the Mi Pad 2 | <!-- stars:PlutoKeating/Project.MiPad2Xubuntu -->⭐ **0**<!-- /stars --> | Shell |
+| [Project.MiPad2Xubuntu](https://github.com/PlutoKeating/Project.MiPad2Xubuntu) | 小米平板 2 的 Xubuntu 24.04 移植工具与指南 · [源码](https://github.com/PlutoKeating/Project.MiPad2Xubuntu)<br>Xubuntu 24.04 port and toolkit for the Mi Pad 2 | <!-- stars:PlutoKeating/Project.MiPad2Xubuntu -->⭐ **1**<!-- /stars --> | Shell |
 | [Project.GT](https://github.com/PlutoKeating/Project.GT) | 为 Samsung GT-I9082i 移植 Debian/Linux · [源码](https://github.com/PlutoKeating/Project.GT)<br>Debian armhf port for the Samsung GT-I9082i | <!-- stars:PlutoKeating/Project.GT -->⭐ **0**<!-- /stars --> | Shell |
 
 ## 💡 嵌入式开发 · Embedded Development
