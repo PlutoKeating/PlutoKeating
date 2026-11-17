@@ -1,4 +1,4 @@
-import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, copyFile, readdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -29,7 +29,7 @@ function safeUrl(value) {
 function inline(value) {
   return escapeHtml(value)
     .replace(/\[([^\]]+)\]\((https?:\/\/[^)]+)\)/g, (_match, label, url) =>
-      `<a class="relative z-20 text-accent hover:text-accent-hover" href="${safeUrl(url)}" target="_blank" rel="noopener noreferrer">${label}<span aria-hidden="true"> ↗</span></a>`)
+      `<a class="inline-link" href="${safeUrl(url)}" target="_blank" rel="noopener noreferrer">${label}</a>`)
     .replace(/&lt;br\s*\/?&gt;/gi, '<br>');
 }
 
@@ -60,28 +60,37 @@ for (const [index, section] of sections.entries()) {
 const allProjects = sections.flatMap((section) => section.projects);
 const featured = new Set(['GoGoGo · 走不走', 'BeenHere · 来过']);
 
+const arrow = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg>';
+// Each symbol describes the project's purpose; all use one consistent stroke system.
+const symbols = {
+  voice: '<rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/>',
+  route: '<circle cx="5" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><path d="M7 5h8a4 4 0 0 1 0 8H9a3 3 0 0 0 0 6h8"/>',
+  archive: '<rect x="3" y="5" width="18" height="4" rx="1"/><path d="M5 9v12h14V9M9 13h6M8 2h8"/>',
+  game: '<path d="M8 8h8c3 0 5 4 5 8s-3 4-5 0H8c-2 4-5 4-5 0s2-8 5-8ZM6 12h4M8 10v4M15 12h.01M18 14h.01"/>',
+  code: '<path d="m8 6-6 6 6 6M16 6l6 6-6 6M14 3l-4 18"/>',
+  book: '<path d="M12 5v16M12 5C8 2 4 3 2 4v15c4-2 7-1 10 2 3-3 6-4 10-2V4c-2-1-6-2-10 1Z"/>',
+  chip: '<rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
+  branch: '<circle cx="6" cy="4" r="2"/><circle cx="6" cy="20" r="2"/><circle cx="18" cy="6" r="2"/><path d="M6 6v12M18 8v2a6 6 0 0 1-6 6H6"/>',
+};
+function projectSymbol(project) {
+  const kind = project.name.includes('SayIt') ? 'voice' : project.name.includes('GoGoGo') ? 'route' : project.name.includes('BeenHere') ? 'archive' : project.section === 'experience' ? 'game' : ({ tools: 'code', learning: 'book', hardware: 'chip', embedded: 'chip', contributions: 'branch' }[project.section] ?? 'code');
+  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${symbols[kind]}</svg>`;
+}
 function projectCard(project, number) {
-  const description = project.description;
-  const projectName = `<span>${escapeHtml(project.name)}<span class="text-sm text-accent" aria-hidden="true"> ↗</span></span>`;
-  const popularity = project.stars === null
-    ? 'PRIVATE SOURCE'
-    : `✦ ${project.stars}`;
   const status = project.name === 'Insight' ? '域名配置中' : null;
-  const sourceLink = project.sourceUrl
-    ? `<a class="relative z-20 shrink-0 text-accent transition-colors hover:text-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent" href="${safeUrl(project.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="查看 ${escapeHtml(project.name)} 的源码">源码 <span aria-hidden="true">↗</span></a>`
-    : '<span class="text-fg-subtle">源码未公开</span>';
-  return `<article class="project-card @container group relative flex min-h-60 flex-col overflow-hidden border border-border bg-surface p-5 transition-all duration-300 hover:-translate-y-1 hover:border-accent hover:shadow-[0_18px_55px_color-mix(in srgb, var(--color-accent) 12%, transparent)] sm:p-6${featured.has(project.name) ? ' project-card--featured' : ''}" data-search="${escapeHtml(`${project.name} ${description.replace(/<[^>]+>/g, ' ')} ${project.language}`.toLowerCase())}">
-    ${project.url ? `<a class="absolute inset-0 z-10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-accent" href="${safeUrl(project.url)}" target="_blank" rel="noopener noreferrer" aria-label="打开 ${escapeHtml(project.name)}${status ? `（${status}）` : ''}"></a>` : ''}
-    <div class="flex items-center justify-between gap-3 font-mono text-[10px] tracking-widest"><span class="text-fg-subtle">${String(number).padStart(2, '0')} / ${escapeHtml(project.section.toUpperCase())}</span><span class="text-accent">${status ?? popularity}</span></div>
-    <h3 class="mt-6 font-sans text-[clamp(1.1rem,6cqw,1.5rem)] leading-snug font-semibold tracking-tight break-words">${projectName}</h3>
-    <p class="card-description mt-3 mb-6 text-xs leading-6 text-fg-muted">${inline(description)}</p>
-    <div class="mt-auto flex flex-wrap items-center justify-between gap-2 border-t border-border pt-3 font-mono text-[10px]"><span class="text-fg-muted"><span class="mr-2 text-accent">●</span>${escapeHtml(project.language)}</span>${sourceLink}</div>
+  const title = project.url
+    ? `<a class="project-title" href="${safeUrl(project.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(project.name)}${arrow}</a>`
+    : `<span>${escapeHtml(project.name)}</span>`;
+  return `<article class="project-card${featured.has(project.name) ? ' project-card--featured' : ''}" data-search="${escapeHtml(`${project.name} ${project.description.replace(/<[^>]+>/g, ' ')} ${project.language}`.toLowerCase())}">
+    <div class="project-visual"><span class="project-symbol">${projectSymbol(project)}</span><span class="project-type">${escapeHtml(sections.find(section => section.id === project.section).title)}</span><span class="project-status">${status ?? (project.stars === null ? '源码未公开' : `${project.stars} stars`)}</span></div>
+    <div class="project-meta">${project.language.split(' / ').map(language => `<span class="language-tag">${escapeHtml(language)}</span>`).join('')}</div>
+    <h4>${title}</h4><p class="card-description">${inline(project.description)}</p>
+    <div class="project-bottom">${project.sourceUrl ? `<a href="${safeUrl(project.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="查看 ${escapeHtml(project.name)} 的源码">查看源码 ${arrow}</a>` : '<span>源码未公开</span>'}${project.url ? `<span aria-hidden="true">${project.section === 'experience' ? '打开作品' : '查看项目'}</span>` : ''}</div>
   </article>`;
 }
-
-const sectionHtml = sections.map((section) => `<section class="project-section mb-20 scroll-mt-8" id="${section.id}" aria-labelledby="heading-${section.id}">
-  <div class="mb-6 flex flex-col justify-between gap-3 border-b border-border-strong pb-5 sm:flex-row sm:items-end"><div><div class="font-mono text-[11px] tracking-[.16em] text-accent"><span class="font-bold">${section.index}</span> / ${section.label}</div><h2 class="mt-3 font-sans text-[clamp(2.25rem,5vw,3.5rem)] leading-tight font-bold tracking-[-.06em]" id="heading-${section.id}">${section.title}<span class="text-accent">.</span></h2></div><p class="text-sm text-fg-subtle">${section.note}</p></div>
-  <div class="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">${section.projects.map((project, index) => projectCard(project, index + 1)).join('\n')}</div>
+const sectionHtml = sections.map((section) => `<section class="project-section" id="${section.id}" aria-labelledby="heading-${section.id}">
+  <div class="section-heading"><h3 id="heading-${section.id}">${section.title}<span class="section-count">${section.projects.length}</span></h3><p>${section.note}</p></div>
+  <div class="project-grid">${section.projects.map((project, index) => projectCard(project, index + 1)).join('\n')}</div>
 </section>`).join('\n');
 
 const html = template
@@ -96,19 +105,19 @@ for (const file of ['app.js', 'favicon.ico', 'pluto-portrait.jpg', '_headers']) 
 }
 const contributionSvg = await readFile(path.join(root, 'contribution-dark.svg'), 'utf8');
 const contributionColors = new Map([
-  ['#161b22', '#17181c'],
-  ['#0e4429', '#3a2a1f'],
-  ['#006d32', '#6b4527'],
-  ['#26a641', '#a5623f'],
-  ['#39d353', '#f0a35e'],
-  ['#7d8590', '#6f6b65'],
+  ['#161b22', '#2D2D2B'],
+  ['#0e4429', '#A86400'],
+  ['#006d32', '#E89400'],
+  ['#26a641', '#FFB000'],
+  ['#39d353', '#FFD466'],
+  ['#7d8590', '#CFC8B6'],
 ]);
 const siteContributionSvg = contributionSvg.replace(/#[0-9a-f]{6}/gi, (color) =>
   contributionColors.get(color.toLowerCase()) ?? color,
 );
 await writeFile(path.join(output, 'contribution-site.svg'), siteContributionSvg);
 await mkdir(path.join(output, 'fonts'), { recursive: true });
-for (const file of ['InterVariable.woff2', 'InterVariable-Italic.woff2']) {
+for (const file of (await readdir(path.join(root, 'site', 'fonts'))).filter((file) => /\.(woff2?|txt)$/i.test(file))) {
   await copyFile(path.join(root, 'site', 'fonts', file), path.join(output, 'fonts', file));
 }
 console.log(`Built ${allProjects.length} projects from README.md into dist/`);

@@ -1,0 +1,183 @@
+:root {
+  /* ── Primitive ─────────────────────────────── */
+  --md-charcoal-900: #0E0E0E; /* ink, keylines */
+  --md-charcoal-800: #161616; /* wells */
+  --md-charcoal-700: #202020; /* Stone Charcoal — system ground */
+  --md-charcoal-600: #2D2D2B; /* plates */
+  --md-charcoal-500: #45443F; /* raised plates, secondary ink on paper */
+  --md-charcoal-400: #77756E;
+  --md-charcoal-300: #A19E94;
+  --md-ivory-50: #FFFBF0;
+  --md-ivory-100: #F6EFDD; /* Warm Ivory — paper */
+  --md-ivory-200: #EAE0C8;
+  --md-ivory-300: #D6CAAE;
+  --md-amber-300: #FFD466;
+  --md-amber-500: #FFB000; /* Amber — the sun, primary action */
+  --md-amber-600: #E89400;
+  --md-amber-700: #A86400;
+  --md-orange-300: #FF8A5C;
+  --md-orange-500: #FF4A1C; /* Workshop Orange — emphasis, warning */
+  --md-orange-600: #E23A0E;
+  --md-orange-700: #A82C08;
+  --md-blue-300: #8FB0FF;
+  --md-blue-500: #2B5CFF; /* Technical Blue */
+  --md-blue-600: #1E46D6;
+  --md-blue-700: #1535A3;
+  --md-green-300: #6FE0AE;
+  --md-green-500: #00B26B; /* Machine Green */
+  --md-green-600: #008F56;
+  --md-green-700: #006B41;
+  --md-sky-200: #CFEBFA;
+  --md-sky-300: #9DD9F7; /* Horizon Sky — focus, info */
+  --md-sky-500: #4FB8EE;
+  --md-red-300: #FF8088;
+  --md-red-500: #D92632; /* Signal Red — danger */
+  --md-red-700: #A3121C;
+  --md-silver-100: #EEF0F2;
+  --md-silver-300: #CDD1D6; /* Metallic Silver */
+  --md-silver-500: #9CA2AA;
+  --md-silver-700: #666C74;
+
+  /* ── Constant ──────────────────────────────── */
+  --md-ink: var(--md-charcoal-900);         /* keylines and text on accent, both grounds */
+  --md-surface-paper: var(--md-ivory-100);  /* reading surfaces placed on any ground */
+  --md-surface-float: rgba(250, 244, 228, 0.92); /* resin: menus, popovers, toasts, tooltips */
+  --md-scrim: rgba(20, 20, 20, 0.62);
+
+  /* ── Surface ───────────────────────────────── */
+  --md-surface-ground: var(--md-charcoal-700);
+  --md-surface-sunken: var(--md-charcoal-800); /* input wells, tracks */
+  --md-surface-plate: var(--md-charcoal-600);  /* cards, tab rests */
+  --md-surface-raised: var(--md-charcoal-500);
+  --md-fill-hover: rgba(246, 239, 221, 0.08);
+  --md-fill-selected: rgba(255, 176, 0, 0.18);
+
+  /* ── Text ──────────────────────────────────── */
+  --md-text-primary: var(--md-ivory-100);
+  --md-text-secondary: #CFC8B6;
+  --md-text-tertiary: var(--md-charcoal-300);
+  --md-text-disabled: var(--md-charcoal-400);
+  --md-text-on-accent: var(--md-ink);
+  --md-text-link: var(--md-sky-300);
+  --md-text-highlight: var(--md-amber-500);
+
+  /* ── Border ────────────────────────────────── */
+  --md-border-subtle: rgba(246, 239, 221, 0.14);
+  --md-border-default: rgba(246, 239, 221, 0.32);
+  --md-border-strong: var(--md-ivory-100);
+  --md-border-focus: var(--md-sky-300);
+
+  /* ── Interactive ───────────────────────────── */
+  --md-action-primary: var(--md-amber-500);
+  --md-action-primary-hover: var(--md-amber-300);
+  --md-action-primary-active: var(--md-amber-600);
+  --md-action-primary-on: var(--md-ink);
+  --md-action-accent: var(--md-blue-600);
+  --md-action-accent-hover: var(--md-blue-500);
+  --md-action-accent-on: var(--md-ivory-50);
+  --md-action-neutral: var(--md-ivory-100);
+  --md-action-neutral-hover: var(--md-ivory-50);
+  --md-action-neutral-on: var(--md-ink);
+  --md-action-danger: var(--md-red-500);
+  --md-action-danger-hover: #EC3A46;
+  --md-action-danger-on: var(--md-ivory-50);
+
+  /* ── State ─────────────────────────────────── */
+  --md-state-success: var(--md-green-500);
+  --md-state-success-text: var(--md-green-300);
+  --md-state-success-surface: rgba(0, 178, 107, 0.16);
+  --md-state-warning: var(--md-orange-500);
+  --md-state-warning-text: var(--md-orange-300);
+  --md-state-warning-surface: rgba(255, 74, 28, 0.16);
+  --md-state-danger: var(--md-red-500);
+  --md-state-danger-text: var(--md-red-300);
+  --md-state-danger-surface: rgba(217, 38, 50, 0.2);
+  --md-state-info: var(--md-sky-500);
+  --md-state-info-text: var(--md-sky-300);
+  --md-state-info-surface: rgba(79, 184, 238, 0.16);
+}
+
+/* Paper scope — put .md-paper on any container that sits in the light. */
+.md-paper {
+  --md-edge-light: inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  --md-edge-shade: inset 0 -1px 0 rgba(0, 0, 0, 0.12);
+  --md-edge-drop: 0 1px 0 rgba(0, 0, 0, 0.18);
+  --md-surface-ground: var(--md-ivory-100);
+  --md-surface-sunken: var(--md-ivory-200);
+  --md-surface-plate: var(--md-ivory-50);
+  --md-surface-raised: #FFFFFF;
+  --md-fill-hover: rgba(30, 30, 30, 0.07);
+  --md-fill-selected: rgba(255, 176, 0, 0.32);
+  --md-text-primary: var(--md-charcoal-900);
+  --md-text-secondary: var(--md-charcoal-500);
+  --md-text-tertiary: #6B6962;
+  --md-text-disabled: var(--md-charcoal-300);
+  --md-text-link: var(--md-blue-600);
+  --md-text-highlight: var(--md-orange-600);
+  --md-border-subtle: rgba(30, 30, 30, 0.14);
+  --md-border-default: rgba(30, 30, 30, 0.36);
+  --md-border-strong: var(--md-charcoal-900);
+  --md-border-focus: var(--md-blue-600);
+  --md-state-success-text: var(--md-green-700);
+  --md-state-warning-text: var(--md-orange-700);
+  --md-state-danger-text: var(--md-red-700);
+  --md-state-info-text: var(--md-blue-700);
+}
+
+/* Charcoal scope — put .md-charcoal on a dark container nested inside .md-paper to restore the dark-ground tokens. */
+.md-charcoal {
+  --md-edge-light: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  --md-edge-shade: inset 0 -1px 0 rgba(0, 0, 0, 0.28);
+  --md-edge-drop: 0 1px 0 rgba(0, 0, 0, 0.45);
+  /* ── Surface ───────────────────────────────── */
+  --md-surface-ground: var(--md-charcoal-700);
+  --md-surface-sunken: var(--md-charcoal-800); /* input wells, tracks */
+  --md-surface-plate: var(--md-charcoal-600);  /* cards, tab rests */
+  --md-surface-raised: var(--md-charcoal-500);
+  --md-fill-hover: rgba(246, 239, 221, 0.08);
+  --md-fill-selected: rgba(255, 176, 0, 0.18);
+
+  /* ── Text ──────────────────────────────────── */
+  --md-text-primary: var(--md-ivory-100);
+  --md-text-secondary: #CFC8B6;
+  --md-text-tertiary: var(--md-charcoal-300);
+  --md-text-disabled: var(--md-charcoal-400);
+  --md-text-on-accent: var(--md-ink);
+  --md-text-link: var(--md-sky-300);
+  --md-text-highlight: var(--md-amber-500);
+
+  /* ── Border ────────────────────────────────── */
+  --md-border-subtle: rgba(246, 239, 221, 0.14);
+  --md-border-default: rgba(246, 239, 221, 0.32);
+  --md-border-strong: var(--md-ivory-100);
+  --md-border-focus: var(--md-sky-300);
+
+  /* ── Interactive ───────────────────────────── */
+  --md-action-primary: var(--md-amber-500);
+  --md-action-primary-hover: var(--md-amber-300);
+  --md-action-primary-active: var(--md-amber-600);
+  --md-action-primary-on: var(--md-ink);
+  --md-action-accent: var(--md-blue-600);
+  --md-action-accent-hover: var(--md-blue-500);
+  --md-action-accent-on: var(--md-ivory-50);
+  --md-action-neutral: var(--md-ivory-100);
+  --md-action-neutral-hover: var(--md-ivory-50);
+  --md-action-neutral-on: var(--md-ink);
+  --md-action-danger: var(--md-red-500);
+  --md-action-danger-hover: #EC3A46;
+  --md-action-danger-on: var(--md-ivory-50);
+
+  /* ── State ─────────────────────────────────── */
+  --md-state-success: var(--md-green-500);
+  --md-state-success-text: var(--md-green-300);
+  --md-state-success-surface: rgba(0, 178, 107, 0.16);
+  --md-state-warning: var(--md-orange-500);
+  --md-state-warning-text: var(--md-orange-300);
+  --md-state-warning-surface: rgba(255, 74, 28, 0.16);
+  --md-state-danger: var(--md-red-500);
+  --md-state-danger-text: var(--md-red-300);
+  --md-state-danger-surface: rgba(217, 38, 50, 0.2);
+  --md-state-info: var(--md-sky-500);
+  --md-state-info-text: var(--md-sky-300);
+  --md-state-info-surface: rgba(79, 184, 238, 0.16);
+}

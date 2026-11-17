@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-17T09:07:31.042953+00:00",
+  "title": "Design System: PlutoKeating — Quetzalcoatl",
+  "extensions": {
+    "motion": [
+      {
+        "name": "press",
+        "value": "80ms",
+        "purpose": "Key travel."
+      },
+      {
+        "name": "hover",
+        "value": "140ms",
+        "purpose": "Color changes."
+      },
+      {
+        "name": "tab",
+        "value": "220ms",
+        "purpose": "Navigation and project movement."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "mobile",
+        "value": "768px"
+      },
+      {
+        "name": "tablet",
+        "value": "1080px"
+      }
+    ],
+    "shadows": [
+      {
+        "name": "key",
+        "value": "var(--md-shadow-key)",
+        "purpose": "Physical button underside."
+      },
+      {
+        "name": "plate",
+        "value": "var(--md-edge-plate)",
+        "purpose": "Scope-aware sharp edge light."
+      },
+      {
+        "name": "search",
+        "value": "inset 0 2px 3px #00000014",
+        "purpose": "Inset search well."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary key",
+      "kind": "button",
+      "description": "Current dark adaptation of the implemented key component.",
+      "html": "<button class=\"ds-key\">Explore works</button>",
+      "css": ".ds-key { display: inline-flex; align-items: center; justify-content: center; gap: 18px; min-height: 48px; padding: 12px 24px; border: var(--md-border-key) solid var(--md-ink); border-radius: var(--md-radius-pill); background: var(--md-amber-500); color: var(--md-ink); box-shadow: var(--md-shadow-key); font-weight: 650; transition: transform var(--md-dur-instant) var(--md-ease-click), box-shadow var(--md-dur-instant), background-color var(--md-dur-quick); }\n.ds-key:hover { background: var(--md-amber-300); }\n.ds-key:active { transform: translateY(2px); box-shadow: var(--md-shadow-key-down); }\n.ds-key { --md-border-focus:var(--md-amber-500); font-family:var(--md-font-body); }\n.ds-key:focus-visible { outline:2px solid var(--md-amber-500); outline-offset:4px; }\n@media (prefers-reduced-motion:reduce) { * { transition-duration:1ms !important; } }",
+      "refersTo": "button-primary"
+    },
+    {
+      "name": "Contact key",
+      "kind": "button",
+      "description": "Current dark adaptation of the implemented contact-key component.",
+      "html": "<button class=\"ds-key ds-contact-key\">Get in touch</button>",
+      "css": ".ds-key { display: inline-flex; align-items: center; justify-content: center; gap: 18px; min-height: 48px; padding: 12px 24px; border: var(--md-border-key) solid var(--md-ink); border-radius: var(--md-radius-pill); background: var(--md-amber-500); color: var(--md-ink); box-shadow: var(--md-shadow-key); font-weight: 650; transition: transform var(--md-dur-instant) var(--md-ease-click), box-shadow var(--md-dur-instant), background-color var(--md-dur-quick); }\n.ds-key:hover { background: var(--md-amber-300); }\n.ds-key:active { transform: translateY(2px); box-shadow: var(--md-shadow-key-down); }\n.ds-contact-key { background: var(--md-orange-500); max-width: 100%; overflow-wrap: anywhere; }\n.ds-contact-key:hover { background: var(--md-orange-300); }\n.ds-contact-key { --md-border-focus:var(--md-amber-500); font-family:var(--md-font-body); }\n.ds-contact-key:focus-visible { outline:2px solid var(--md-amber-500); outline-offset:4px; }\n@media (prefers-reduced-motion:reduce) { * { transition-duration:1ms !important; } }",
+      "refersTo": "button-contact"
+    },
+    {
+      "name": "Search well",
+      "kind": "input",
+      "description": "Current dark adaptation of the implemented search-well component.",
+      "html": "<div class=\"ds-search-well\"><input aria-label=\"Search projects\" placeholder=\"Search projects\"></div>",
+      "css": ".ds-search-well { display: flex; gap: 12px; align-items: center; padding: 0 14px; background: var(--md-charcoal-800); border: 1px solid var(--md-border-default); border-radius: var(--md-shape-plate-sm); box-shadow: inset 0 2px 3px #00000014; }\n.ds-search-well input { min-width: 0; width: 100%; min-height: 48px; background: transparent; border: 0; outline: 0; caret-color: var(--md-orange-500); font-size: 14px; }\n.ds-search-well input::placeholder { color: var(--md-text-tertiary); }\n.ds-search-well:focus-within { outline: 2px solid var(--md-amber-500); outline-offset: 3px; }\n.ds-search-well { --card-accent:var(--md-orange-500); --md-border-focus:var(--md-amber-500); color:var(--md-ivory-100); font-family:var(--md-font-body); }\n.ds-search-well:focus-visible { outline:2px solid var(--md-amber-500); outline-offset:4px; }\n@media (prefers-reduced-motion:reduce) { * { transition-duration:1ms !important; } }"
+    },
+    {
+      "name": "Folder navigation",
+      "kind": "nav",
+      "description": "Current dark adaptation of the implemented category-link component.",
+      "html": "<nav><a class=\"ds-category-link\" href=\"#experience\" aria-current=\"location\">Live works</a></nav>",
+      "css": ".ds-category-link { display: flex; align-items: center; min-height: 44px; padding: 10px 22px; border: 1px solid var(--md-border-default); border-bottom: 0; border-radius: var(--md-shape-tab); font-size: 14px; transition: background-color var(--md-dur-quick), transform var(--md-dur-base); }\n.ds-category-link:hover { background: var(--md-charcoal-800); transform: translateY(-2px); }\n.ds-category-link[aria-current] { background: var(--md-orange-500); color: var(--md-ink); border-color: var(--md-orange-500); }\n.ds-category-link:hover { background: var(--md-charcoal-600); }\n.ds-category-link { --md-border-focus:var(--md-amber-500); font-family:var(--md-font-body); }\n.ds-category-link:focus-visible { outline:2px solid var(--md-amber-500); outline-offset:4px; }\n@media (prefers-reduced-motion:reduce) { * { transition-duration:1ms !important; } }"
+    },
+    {
+      "name": "Project plate",
+      "kind": "card",
+      "description": "Current dark adaptation of the implemented project-card component.",
+      "html": "<article class=\"ds-project-card\"><div class=\"ds-project-visual\"><span class=\"ds-project-symbol\"><svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"m8 6-6 6 6 6M16 6l6 6-6 6M14 3l-4 18\"/></svg></span><span class=\"ds-project-type\">Tools</span></div><div class=\"ds-project-meta\"><span class=\"ds-language-tag\">JavaScript</span></div><h4><a class=\"ds-project-title\" href=\"#tools\">Project preview</a></h4></article>",
+      "css": ".ds-project-card { position: relative; min-width: 0; padding: 24px; display: flex; flex-direction: column; border: 1px solid var(--md-border-default); border-radius: var(--md-shape-plate); background: var(--md-charcoal-600); box-shadow: var(--md-edge-plate); transition: border-color var(--md-dur-quick), transform var(--md-dur-base) var(--md-ease-glide); }\n.ds-project-card:hover { border-color: var(--card-accent); transform: translateY(-2px); }\n.ds-project-visual { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }\n.ds-project-symbol { display: grid; place-items: center; width: 48px; height: 48px; flex-shrink: 0; color: var(--card-accent); border: 1px solid var(--card-accent); border-radius: var(--md-shape-plate-sm); background: var(--md-charcoal-800); box-shadow: var(--md-edge-plate); }\n.ds-project-symbol svg { width: 26px; height: 26px; }\n.ds-project-type { font-size: 12px; color: var(--md-text-secondary); }\n.ds-project-status { margin-left: auto; font: 11px/1.6 var(--md-font-mono); color: var(--md-amber-300); text-align: right; }\n.ds-language-tag { padding: 3px 8px; border: 1px solid var(--md-border-subtle); border-radius: 2px; background: var(--md-charcoal-800); }\n.ds-project-meta { display: flex; flex-wrap: wrap; gap: 6px; font: 400 11px/1.7 var(--md-font-mono); color: var(--md-text-secondary); font-variant-numeric: tabular-nums; }\n.ds-project-card h4 { font-size: 23px; margin-top: 14px; overflow-wrap: anywhere; }\n.ds-project-title { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }\n.ds-project-title::after { content: ''; position: absolute; inset: 0; z-index: 1; }\n.ds-project-title:hover { color: var(--card-accent); }\n.ds-project-card:has(.ds-project-title:focus-visible) { outline: 2px solid var(--md-border-focus); outline-offset: 4px; }\n.ds-project-title:focus-visible { outline: none; }\n.ds-live .ds-project-card { padding: 24px; overflow: hidden; }\n.ds-live .ds-project-card:nth-child(odd) { --card-accent: var(--md-orange-500); --card-text: var(--md-orange-300); }\n.ds-live .ds-project-visual { margin: -24px -24px 24px; min-height: 132px; padding: 24px; position: relative; background: var(--md-charcoal-800); border-bottom: 1px solid var(--md-border-default); }\n.ds-live .ds-project-symbol { width: 76px; height: 76px; border-radius: var(--md-shape-plate); background: var(--card-accent); color: var(--md-ink); box-shadow: var(--md-edge-light-strong), 3px 5px 12px -4px #0009; }\n.ds-live .ds-project-symbol svg { width: 40px; height: 40px; }\n.ds-live .ds-project-type { position: absolute; right: 24px; top: 30px; color: var(--md-text-secondary); }\n.ds-live .ds-project-status { align-self: end; margin-left: auto; padding: 3px 9px; border: 1px solid var(--md-border-subtle); border-radius: var(--md-radius-pill); }\n.ds-live .ds-project-card h4 { margin-top: 20px; font-size: 27px; }\n.ds-project-title > .ds-icon { color: var(--card-accent); }\n.ds-project-card { --card-accent:var(--md-orange-500); --card-text:var(--md-orange-300); --md-border-focus:var(--md-amber-500); color:var(--md-ivory-100); font-family:var(--md-font-body); }\n.ds-project-card:focus-visible { outline:2px solid var(--md-amber-500); outline-offset:4px; }\n@media (prefers-reduced-motion:reduce) { * { transition-duration:1ms !important; } }"
+    },
+    {
+      "name": "Language badge",
+      "kind": "chip",
+      "description": "Compact informational language badge on a dark project plate.",
+      "html": "<span class=\"ds-language-tag\">JavaScript</span>",
+      "css": ".ds-language-tag { padding:3px 8px; border:1px solid var(--md-border-subtle); border-radius:2px; background:var(--md-charcoal-800); color:var(--md-text-secondary); font:400 11px/1.7 var(--md-font-mono); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Ten O’Clock Sun",
+    "overview": "Quetzalcoatl supplies the underlying shape, type and physical-control language. The user explicitly superseded the initial light/dark composition: every page surface now stays dark, Workshop Orange and Amber form the primary accent pair, and project cards carry more purposeful decoration. The site prioritizes works, preserves all README-driven data, and uses the existing sunlit personal photograph. Source reference: `Quetzalcoatl design system/readme.md`, tokens, component specifications and showcase. Shipping tokens are copied under `site/design-system/quetzalcoatl/` so builds do not depend on an untracked reference folder."
+  }
+}
