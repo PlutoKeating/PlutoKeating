@@ -60,7 +60,7 @@
 | 项目 Project | 简介 About | ⭐ | 技术 Stack |
 | :--- | :--- | :---: | :--- |
 | [Quetzal](https://quetzal.plutokeating.beer) | 让 AI agent 住进旧手机：自主作息、感知身体，记忆通过 Git 跨设备延续 · [源码](https://github.com/PlutoKeating/Project.Quetzal)<br>An embodied AI agent runtime with a body clock and Git-synced memory across devices | <!-- stars:PlutoKeating/Project.Quetzal -->⭐ **2**<!-- /stars --> | TypeScript / Dart |
-| [dsh-lark-bot](https://dsh-lark-bot.plutokeating.beer) | 把 DeepSeek Harness 接入飞书：扫码绑定、流式卡片与并行任务 · [源码](https://github.com/PlutoKeating/dsh-lark-bot)<br>Use a coding agent directly from Feishu/Lark | <!-- stars:PlutoKeating/dsh-lark-bot -->⭐ **44**<!-- /stars --> | TypeScript |
+| [dsh-lark-bot](https://dsh-lark-bot.plutokeating.beer) | 把 DeepSeek Harness 接入飞书：扫码绑定、流式卡片与并行任务 · [源码](https://github.com/PlutoKeating/dsh-lark-bot)<br>Use a coding agent directly from Feishu/Lark | <!-- stars:PlutoKeating/dsh-lark-bot -->⭐ **45**<!-- /stars --> | TypeScript |
 | [Milano Library](https://github.com/PlutoKeating/Project.MilanoLibrary) | 无数据库的视频资料库与重组编译器 · [源码](https://github.com/PlutoKeating/Project.MilanoLibrary)<br>Database-less video vault and recomposition compiler | <!-- stars:PlutoKeating/Project.MilanoLibrary -->⭐ **2**<!-- /stars --> | Python |
 | [PlutoWiFi](https://github.com/PlutoKeating/Project.Pluto-WiFi) | ZeroTier 私有网络管理看板的开源实现 · [源码](https://github.com/PlutoKeating/Project.Pluto-WiFi)<br>Open-source private network dashboard | <!-- stars:PlutoKeating/Project.Pluto-WiFi -->⭐ **0**<!-- /stars --> | Python / TypeScript |
 | [quickToMyEnv](https://github.com/PlutoKeating/quickToMyEnv) | 在新电脑上快速重建熟悉的 Linux 环境 · [源码](https://github.com/PlutoKeating/quickToMyEnv)<br>Rebuild a familiar Linux environment | <!-- stars:PlutoKeating/quickToMyEnv -->⭐ **1**<!-- /stars --> | Shell |
@@ -86,7 +86,7 @@
 
 | 项目 Project | 简介 About | ⭐ | 技术 Stack |
 | :--- | :--- | :---: | :--- |
-| [Project.Villy](https://github.com/PlutoKeating/Project.Villy) | 将小米初代扫地机器人改造为可运行 Linux 的机器人底盘 · [源码](https://github.com/PlutoKeating/Project.Villy)<br>Linux robot chassis from a first-generation robot vacuum | <!-- stars:PlutoKeating/Project.Villy -->⭐ **0**<!-- /stars --> | C |
+| [Project.Villy](https://github.com/PlutoKeating/Project.Villy) | 将小米初代扫地机器人改造为可运行 Linux 的机器人底盘 · [源码](https://github.com/PlutoKeating/Project.Villy)<br>Linux robot chassis from a first-generation robot vacuum | <!-- stars:PlutoKeating/Project.Villy -->⭐ **1**<!-- /stars --> | C |
 | [Project.MiPad2Xubuntu](https://github.com/PlutoKeating/Project.MiPad2Xubuntu) | 小米平板 2 的 Xubuntu 24.04 移植工具与指南 · [源码](https://github.com/PlutoKeating/Project.MiPad2Xubuntu)<br>Xubuntu 24.04 port and toolkit for the Mi Pad 2 | <!-- stars:PlutoKeating/Project.MiPad2Xubuntu -->⭐ **1**<!-- /stars --> | Shell |
 | [Project.GT](https://github.com/PlutoKeating/Project.GT) | 为 Samsung GT-I9082i 移植 Debian/Linux · [源码](https://github.com/PlutoKeating/Project.GT)<br>Debian armhf port for the Samsung GT-I9082i | <!-- stars:PlutoKeating/Project.GT -->⭐ **0**<!-- /stars --> | Shell |
 
