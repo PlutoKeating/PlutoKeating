@@ -46,6 +46,7 @@
 
 | 项目 Project | 简介 About | ⭐ | 技术 Stack |
 | :--- | :--- | :---: | :--- |
+| [UltraCode](https://ultracode.plutokeating.beer) | 基于官方 OpenCode V2 的目标工程层：用一句话说清目标，UltraBuild / UltraPlan 双角色自动澄清、实现、开真实浏览器验收；终端、桌面、网页、手机共享同一进度 · [源码](https://github.com/PlutoKeating/Project.UltraCode)<br>A goal-engineering layer on official OpenCode V2: state the goal once, and UltraBuild / UltraPlan clarify, implement and verify in a real browser | <!-- stars:PlutoKeating/Project.UltraCode -->⭐ **0**<!-- /stars --> | Goal Engineering / OpenCode V2 / TUI/Desktop/Mobile |
 | [你讲 · SayIt](https://sayit.plutokeating.beer) | 闭眼即说、绝不丢话的口袋记录簿：想法冒出的那一秒讲出来，先接住原始音频，再整理成忠实可读的文字；支持 Android / Windows / Linux / 网页，源码暂未公开<br>A pocket notebook for speaking without looking: capture the raw audio first, then turn rambling speech into faithful, readable text | — | Dart / Flutter / TypeScript |
 | [GoGoGo · 走不走](https://gogogo.plutokeating.beer) | 根据位置、场景与偏好生成可执行的出行计划；源码暂未公开<br>An AI outing planner with a public Web experience | — | TypeScript / Vue |
 | [BeenHere · 来过](https://beenhere.plutokeating.beer) | 保存普通人的真实采访，让记录可以认领、修订与撤回 · [源码](https://github.com/PlutoKeating/Project.BeenHere)<br>A public archive of everyday conversations | <!-- stars:PlutoKeating/Project.BeenHere -->⭐ **0**<!-- /stars --> | TypeScript |

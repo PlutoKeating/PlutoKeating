@@ -73,7 +73,7 @@ const symbols = {
   branch: '<circle cx="6" cy="4" r="2"/><circle cx="6" cy="20" r="2"/><circle cx="18" cy="6" r="2"/><path d="M6 6v12M18 8v2a6 6 0 0 1-6 6H6"/>',
 };
 function projectSymbol(project) {
-  const kind = project.name.includes('SayIt') ? 'voice' : project.name.includes('GoGoGo') ? 'route' : project.name.includes('BeenHere') ? 'archive' : project.section === 'experience' ? 'game' : ({ tools: 'code', learning: 'book', hardware: 'chip', embedded: 'chip', contributions: 'branch' }[project.section] ?? 'code');
+  const kind = project.name.includes('UltraCode') ? 'code' : project.name.includes('SayIt') ? 'voice' : project.name.includes('GoGoGo') ? 'route' : project.name.includes('BeenHere') ? 'archive' : project.section === 'experience' ? 'game' : ({ tools: 'code', learning: 'book', hardware: 'chip', embedded: 'chip', contributions: 'branch' }[project.section] ?? 'code');
   return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${symbols[kind]}</svg>`;
 }
 function projectCard(project, number) {
