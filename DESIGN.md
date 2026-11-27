@@ -49,7 +49,7 @@ The site prioritises works, keeps `README.md` as the only project data source, a
 
 Pure `#000000` ground with the system's fixed ice/amber optical horizon and film grain. Text is white and neutral greys. Ice and amber appear only as signals: the LED beside the live-projects heading and the hero caption, the active milestone tick, the amber `>` caret in front of the motto and the activity header, the amber state on a project that still needs attention, and the ice cells for the busiest days of the contribution chart. The portrait is the only saturated image on the page.
 
-One sanctioned exception: the `PlutoKeating` wordmark, in the header and in the hero headline only (`.wordmark` in `site/input.css`). Its letters carry six horizontal bands in the order of the 1977 Apple rainbow (green, yellow, orange, red, purple, blue), each mixed 34% into white so the word still reads as white at a glance. In the headline the bands are separated by thin transparent slits, after the IBM 8-bar mark; the header is too small for slits and keeps the bands only. Do not apply the bands to any other text, and do not raise the mix.
+One sanctioned exception: the `PlutoKeating` wordmark, in the header and in the hero headline only (`.wordmark` in `site/input.css`). Its letters carry six horizontal bands in the order of the 1977 Apple rainbow (green, yellow, orange, red, purple, blue), each mixed 48% into white: clearly tinted, still lighter than any signal colour on the page. In the headline the bands are separated by thin transparent slits, after the IBM 8-bar mark; the header is too small for slits and keeps the bands only. Do not apply the bands to any other text.
 
 ## Typography
 
