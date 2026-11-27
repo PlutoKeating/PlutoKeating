@@ -32,7 +32,7 @@ h1, h2, h3, h4, p, figure { margin: 0; }
    in the order of the 1977 Apple rainbow, softened towards white, cut by the
    horizontal slits of the IBM 8-bar mark where the type is large enough. */
 .wordmark {
-  --wm-mix: 48%;
+  --wm-mix: 68%;
   --wm-top: 0.3em;   /* cap line, from the top of the glyph box */
   --wm-band: 0.118em; /* cap height / 6 */
   --wm-slit: 0em;
