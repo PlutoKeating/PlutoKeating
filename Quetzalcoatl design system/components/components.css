@@ -30,8 +30,8 @@
   height: var(--qz-nav-height);
   border-bottom: 1px solid var(--qz-hairline);
   background: var(--qz-glass-nav);
-  backdrop-filter: blur(var(--qz-blur-nav));
   -webkit-backdrop-filter: blur(var(--qz-blur-nav));
+  backdrop-filter: blur(var(--qz-blur-nav));
 }
 
 .qz-nav-inner {
@@ -310,9 +310,68 @@ html[dir="rtl"] .qz-dir-arrow {
   color: #ffffff;
 }
 
-.qz-segment.is-active {
+.qz-segment.is-active,
+.qz-segment[aria-current] {
   background: var(--qz-fill-active);
   color: #ffffff;
+}
+
+/* Segments may be links (in-page navigation) as well as buttons */
+a.qz-segment {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* ═══ Text input ═══════════════════════════════════════════════════════ */
+
+.qz-input {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 0.85rem;
+  border-radius: var(--qz-radius-lg);
+  border: 1px solid var(--qz-line-control);
+  background: var(--qz-glass-bar);
+  color: var(--qz-ink-secondary);
+  transition: border-color var(--qz-duration-fast) var(--qz-ease);
+}
+
+.qz-input:hover {
+  border-color: rgba(255, 255, 255, 0.24);
+}
+
+.qz-input:focus-within {
+  border-color: var(--qz-line-hover);
+  outline: 1px solid var(--qz-focus);
+  outline-offset: 3px;
+}
+
+.qz-input svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.qz-input input {
+  flex: 1;
+  min-width: 0;
+  min-height: 2.5rem;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #ffffff;
+  caret-color: var(--qz-amber);
+  font-family: var(--qz-font-sans);
+  font-size: var(--qz-text-control);
+}
+
+.qz-input input::placeholder {
+  color: var(--qz-ink-quiet);
+}
+
+.qz-input input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
 }
 
 /* ═══ Command bar (one-line command + primary action) ══════════════════ */
@@ -538,6 +597,23 @@ html[lang="ar"] .qz-monument {
 .qz-cell {
   padding: var(--qz-cell-pad);
   border-inline-end: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Multi-row rail: any number of cells, hairlines between rows and columns.
+   The outermost cell borders are pushed outside the clipped container. */
+.qz-rail.is-grid {
+  overflow: hidden;
+}
+
+.qz-rail.is-grid > .qz-cell,
+.qz-rail.is-grid > .qz-cell:last-child {
+  margin: 0 -1px -1px 0;
+  border-inline-end: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html[dir="rtl"] .qz-rail.is-grid > .qz-cell {
+  margin: 0 0 -1px -1px;
 }
 
 .qz-cell:last-child {
@@ -794,8 +870,8 @@ html[lang="ar"] .qz-monument {
   border-right: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: var(--qz-radius-stage) var(--qz-radius-stage) 0 0;
   background: var(--qz-stage-glass);
-  backdrop-filter: blur(var(--qz-blur-stage));
   -webkit-backdrop-filter: blur(var(--qz-blur-stage));
+  backdrop-filter: blur(var(--qz-blur-stage));
   overflow: hidden;
   text-align: start;
   -webkit-mask-image: var(--qz-stage-fade);
@@ -1303,11 +1379,11 @@ html[lang="ar"] .qz-monument {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .qz-rail:not(.is-2):not(.is-3) .qz-cell:nth-child(2n) {
+  .qz-rail:not(.is-2):not(.is-3):not(.is-grid) .qz-cell:nth-child(2n) {
     border-inline-end: none;
   }
 
-  .qz-rail:not(.is-2):not(.is-3) .qz-cell:nth-child(-n + 2) {
+  .qz-rail:not(.is-2):not(.is-3):not(.is-grid) .qz-cell:nth-child(-n + 2) {
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 }
@@ -1317,12 +1393,12 @@ html[lang="ar"] .qz-monument {
     grid-template-columns: 1fr;
   }
 
-  .qz-rail.is-3 .qz-cell {
+  .qz-rail:not(.is-grid).is-3 .qz-cell {
     border-inline-end: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .qz-rail.is-3 .qz-cell:last-child {
+  .qz-rail:not(.is-grid).is-3 .qz-cell:last-child {
     border-bottom: none;
   }
 }
@@ -1366,12 +1442,12 @@ html[lang="ar"] .qz-monument {
     grid-template-columns: 1fr;
   }
 
-  .qz-rail.is-2 .qz-cell {
+  .qz-rail:not(.is-grid).is-2 .qz-cell {
     border-inline-end: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .qz-rail.is-2 .qz-cell:last-child {
+  .qz-rail:not(.is-grid).is-2 .qz-cell:last-child {
     border-bottom: none;
   }
 }
@@ -1426,12 +1502,12 @@ html[lang="ar"] .qz-monument {
     grid-template-columns: 1fr;
   }
 
-  .qz-rail .qz-cell {
+  .qz-rail:not(.is-grid) .qz-cell {
     border-inline-end: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  .qz-rail .qz-cell:last-child {
+  .qz-rail:not(.is-grid) .qz-cell:last-child {
     border-bottom: none;
   }
 }
