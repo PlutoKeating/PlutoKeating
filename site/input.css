@@ -29,19 +29,20 @@ h1, h2, h3, h4, p, figure { margin: 0; }
 .skip-link:focus { transform: none; }
 
 /* Wordmark: the one sanctioned exception to the two-signal palette. Six bands
-   in the order of the 1977 Apple rainbow, each hue set at high lightness and near-full chroma
-   for the black ground (wider-gamut screens show more of it), cut by the
+   in the order of the 1977 Apple rainbow, each hue tuned separately so the bands look
+   equally bright to the eye rather than sharing one lightness and chroma
+   (see DESIGN.md), cut by the
    horizontal slits of the IBM 8-bar mark where the type is large enough. */
 .wordmark {
   --wm-top: 0.3em;   /* cap line, from the top of the glyph box */
   --wm-band: 0.118em; /* cap height / 6 */
   --wm-slit: 0em;
-  --wm-1: oklch(0.88 0.24 140);
-  --wm-2: oklch(0.92 0.17 96);
-  --wm-3: oklch(0.82 0.17 56);
-  --wm-4: oklch(0.74 0.19 22);
-  --wm-5: oklch(0.72 0.23 312);
-  --wm-6: #2ec4ff;
+  --wm-1: #7ad55d;
+  --wm-2: #e9c53f;
+  --wm-3: #ffaa5d;
+  --wm-4: #ff9690;
+  --wm-5: #da8bf7;
+  --wm-6: #2fc4ff;
   --b1: calc(var(--wm-top) + var(--wm-band));
   --b2: calc(var(--wm-top) + 2 * var(--wm-band));
   --b3: calc(var(--wm-top) + 3 * var(--wm-band));
