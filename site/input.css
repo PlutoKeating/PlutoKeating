@@ -37,11 +37,11 @@ h1, h2, h3, h4, p, figure { margin: 0; }
   --wm-top: 0.3em;   /* cap line, from the top of the glyph box */
   --wm-band: 0.118em; /* cap height / 6 */
   --wm-slit: 0em;
-  --wm-1: #7ad55d;
-  --wm-2: #e9c53f;
-  --wm-3: #ffaa5d;
-  --wm-4: #ff9690;
-  --wm-5: #da8bf7;
+  --wm-1: #69dd4a;
+  --wm-2: #f9d343;
+  --wm-3: #ffac61;
+  --wm-4: #ff8d88;
+  --wm-5: #de87fe;
   --wm-6: #2fc4ff;
   --b1: calc(var(--wm-top) + var(--wm-band));
   --b2: calc(var(--wm-top) + 2 * var(--wm-band));
@@ -59,6 +59,8 @@ h1, h2, h3, h4, p, figure { margin: 0; }
   -webkit-text-fill-color: transparent; color: transparent;
 }
 .qz-display .wordmark { --wm-slit: 0.02em; }
+/* The wide-gamut override for bands 3-6 lives in an inline <style> in
+   index.html: the CSS build flattens display-p3 colours back to sRGB. */
 @media (forced-colors: active) { .wordmark { background: none; -webkit-text-fill-color: currentColor; color: inherit; } }
 
 /* Hero */
