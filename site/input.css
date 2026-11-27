@@ -29,20 +29,19 @@ h1, h2, h3, h4, p, figure { margin: 0; }
 .skip-link:focus { transform: none; }
 
 /* Wordmark: the one sanctioned exception to the two-signal palette. Six bands
-   in the order of the 1977 Apple rainbow, each hue lifted in lightness for the
-   black ground and mixed 91% into white, cut by the
+   in the order of the 1977 Apple rainbow, each hue pushed to high lightness and full chroma
+   for the black ground (wider-gamut screens show more of it), cut by the
    horizontal slits of the IBM 8-bar mark where the type is large enough. */
 .wordmark {
-  --wm-mix: 91%;
   --wm-top: 0.3em;   /* cap line, from the top of the glyph box */
   --wm-band: 0.118em; /* cap height / 6 */
   --wm-slit: 0em;
-  --wm-1: color-mix(in oklab, #7bd95c var(--wm-mix), #fff);
-  --wm-2: color-mix(in oklab, #ffcb45 var(--wm-mix), #fff);
-  --wm-3: color-mix(in oklab, #ff9a3d var(--wm-mix), #fff);
-  --wm-4: color-mix(in oklab, #ff5a5e var(--wm-mix), #fff);
-  --wm-5: color-mix(in oklab, #c263c4 var(--wm-mix), #fff);
-  --wm-6: color-mix(in oklab, #2db8f5 var(--wm-mix), #fff);
+  --wm-1: oklch(0.86 0.27 140);
+  --wm-2: oklch(0.91 0.19 96);
+  --wm-3: oklch(0.80 0.19 56);
+  --wm-4: oklch(0.70 0.25 22);
+  --wm-5: oklch(0.68 0.27 312);
+  --wm-6: oklch(0.78 0.17 242);
   --b1: calc(var(--wm-top) + var(--wm-band));
   --b2: calc(var(--wm-top) + 2 * var(--wm-band));
   --b3: calc(var(--wm-top) + 3 * var(--wm-band));
