@@ -58,39 +58,25 @@ for (const [index, section] of sections.entries()) {
 }
 
 const allProjects = sections.flatMap((section) => section.projects);
-const featured = new Set(['GoGoGo · 走不走', 'BeenHere · 来过']);
-
-const arrow = '<svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg>';
-// Each symbol describes the project's purpose; all use one consistent stroke system.
-const symbols = {
-  voice: '<rect x="9" y="3" width="6" height="12" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/>',
-  route: '<circle cx="5" cy="5" r="2"/><circle cx="19" cy="19" r="2"/><path d="M7 5h8a4 4 0 0 1 0 8H9a3 3 0 0 0 0 6h8"/>',
-  archive: '<rect x="3" y="5" width="18" height="4" rx="1"/><path d="M5 9v12h14V9M9 13h6M8 2h8"/>',
-  game: '<path d="M8 8h8c3 0 5 4 5 8s-3 4-5 0H8c-2 4-5 4-5 0s2-8 5-8ZM6 12h4M8 10v4M15 12h.01M18 14h.01"/>',
-  code: '<path d="m8 6-6 6 6 6M16 6l6 6-6 6M14 3l-4 18"/>',
-  book: '<path d="M12 5v16M12 5C8 2 4 3 2 4v15c4-2 7-1 10 2 3-3 6-4 10-2V4c-2-1-6-2-10 1Z"/>',
-  chip: '<rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
-  branch: '<circle cx="6" cy="4" r="2"/><circle cx="6" cy="20" r="2"/><circle cx="18" cy="6" r="2"/><path d="M6 6v12M18 8v2a6 6 0 0 1-6 6H6"/>',
-};
-function projectSymbol(project) {
-  const kind = project.name.includes('UltraCode') ? 'code' : project.name.includes('SayIt') ? 'voice' : project.name.includes('GoGoGo') ? 'route' : project.name.includes('BeenHere') ? 'archive' : project.section === 'experience' ? 'game' : ({ tools: 'code', learning: 'book', hardware: 'chip', embedded: 'chip', contributions: 'branch' }[project.section] ?? 'code');
-  return `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${symbols[kind]}</svg>`;
+const arrow = '<svg viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8H12.5M9 4.5L12.5 8L9 11.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+// Brand signals: amber means "needs a human", neutral mono for plain facts.
+function projectStatus(project) {
+  if (project.name === 'Insight') return '<span class="qz-state is-amber project-status"><i aria-hidden="true"></i>域名配置中</span>';
+  return `<span class="qz-meta project-status">${project.stars === null ? '源码未公开' : `${project.stars} stars`}</span>`;
 }
-function projectCard(project, number) {
-  const status = project.name === 'Insight' ? '域名配置中' : null;
+function projectCard(project) {
   const title = project.url
-    ? `<a class="project-title" href="${safeUrl(project.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(project.name)}${arrow}</a>`
+    ? `<a class="project-title" href="${safeUrl(project.url)}" target="_blank" rel="noopener noreferrer"><span>${escapeHtml(project.name)}</span>${arrow}</a>`
     : `<span>${escapeHtml(project.name)}</span>`;
-  return `<article class="project-card${featured.has(project.name) ? ' project-card--featured' : ''}" data-search="${escapeHtml(`${project.name} ${project.description.replace(/<[^>]+>/g, ' ')} ${project.language}`.toLowerCase())}">
-    <div class="project-visual"><span class="project-symbol">${projectSymbol(project)}</span><span class="project-type">${escapeHtml(sections.find(section => section.id === project.section).title)}</span><span class="project-status">${status ?? (project.stars === null ? '源码未公开' : `${project.stars} stars`)}</span></div>
-    <div class="project-meta">${project.language.split(' / ').map(language => `<span class="language-tag">${escapeHtml(language)}</span>`).join('')}</div>
+  return `<article class="qz-cell project-card" data-search="${escapeHtml(`${project.name} ${project.description.replace(/<[^>]+>/g, ' ')} ${project.language}`.toLowerCase())}">
+    <div class="project-meta"><span class="qz-meta">${project.language.split(' / ').map(escapeHtml).join(' · ')}</span>${projectStatus(project)}</div>
     <h4>${title}</h4><p class="card-description">${inline(project.description)}</p>
-    <div class="project-bottom">${project.sourceUrl ? `<a href="${safeUrl(project.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="查看 ${escapeHtml(project.name)} 的源码">查看源码 ${arrow}</a>` : '<span>源码未公开</span>'}${project.url ? `<span aria-hidden="true">${project.section === 'experience' ? '打开作品' : '查看项目'}</span>` : ''}</div>
+    <div class="project-bottom">${project.sourceUrl ? `<a class="qz-link-arrow" href="${safeUrl(project.sourceUrl)}" target="_blank" rel="noopener noreferrer" aria-label="查看 ${escapeHtml(project.name)} 的源码"><span>查看源码</span>${arrow}</a>` : '<span>源码未公开</span>'}${project.url ? `<span aria-hidden="true">${project.section === 'experience' ? '打开作品' : '查看项目'}</span>` : ''}</div>
   </article>`;
 }
 const sectionHtml = sections.map((section) => `<section class="project-section" id="${section.id}" aria-labelledby="heading-${section.id}">
-  <div class="section-heading"><h3 id="heading-${section.id}">${section.title}<span class="section-count">${section.projects.length}</span></h3><p>${section.note}</p></div>
-  <div class="project-grid">${section.projects.map((project, index) => projectCard(project, index + 1)).join('\n')}</div>
+  <div class="section-heading"><h3 id="heading-${section.id}">${section.id === 'experience' ? '<span class="qz-led" aria-hidden="true"></span>' : ''}${section.title}<span class="qz-meta section-count">${section.projects.length}</span></h3><p>${section.note}</p></div>
+  <div class="qz-rail is-grid ${section.id === 'experience' ? 'is-3' : 'is-2'} project-grid">${section.projects.map(projectCard).join('\n')}</div>
 </section>`).join('\n');
 
 const html = template
@@ -98,26 +84,29 @@ const html = template
   .replaceAll('<!-- PROJECT_COUNT -->', String(allProjects.length))
   .replaceAll('<!-- CATEGORY_COUNT -->', String(sections.length));
 
+const system = path.join(root, 'Quetzalcoatl design system');
 await mkdir(output, { recursive: true });
 await writeFile(path.join(output, 'index.html'), html);
 for (const file of ['app.js', 'favicon.ico', 'pluto-portrait.jpg', '_headers']) {
   await copyFile(path.join(root, 'site', file), path.join(output, file));
 }
+await copyFile(path.join(system, 'scripts', 'optics.js'), path.join(output, 'optics.js'));
+// Recolour GitHub's green ramp into the brand's monochrome ramp; the busiest days catch the ice light.
 const contributionSvg = await readFile(path.join(root, 'contribution-dark.svg'), 'utf8');
 const contributionColors = new Map([
-  ['#161b22', '#2D2D2B'],
-  ['#0e4429', '#A86400'],
-  ['#006d32', '#E89400'],
-  ['#26a641', '#FFB000'],
-  ['#39d353', '#FFD466'],
-  ['#7d8590', '#CFC8B6'],
+  ['#161b22', '#111111'],
+  ['#0e4429', '#333333'],
+  ['#006d32', '#6B6B6B'],
+  ['#26a641', '#D4D4D4'],
+  ['#39d353', '#BAE6FD'],
+  ['#7d8590', '#8A8A8A'],
 ]);
 const siteContributionSvg = contributionSvg.replace(/#[0-9a-f]{6}/gi, (color) =>
   contributionColors.get(color.toLowerCase()) ?? color,
 );
 await writeFile(path.join(output, 'contribution-site.svg'), siteContributionSvg);
 await mkdir(path.join(output, 'fonts'), { recursive: true });
-for (const file of (await readdir(path.join(root, 'site', 'fonts'))).filter((file) => /\.(woff2?|txt)$/i.test(file))) {
-  await copyFile(path.join(root, 'site', 'fonts', file), path.join(output, 'fonts', file));
+for (const file of (await readdir(path.join(system, 'fonts'))).filter((file) => /\.(woff2?|txt)$/i.test(file))) {
+  await copyFile(path.join(system, 'fonts', file), path.join(output, 'fonts', file));
 }
 console.log(`Built ${allProjects.length} projects from README.md into dist/`);

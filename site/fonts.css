@@ -1,0 +1,8 @@
+/* Sora and JetBrains Mono (SIL OFL 1.1), Latin subset. The build copies the
+   files from "Quetzalcoatl design system/fonts/" into dist/fonts/. Chinese
+   text uses the system CJK fonts listed in the brand's font stacks. */
+@font-face { font-family: "Sora"; font-style: normal; font-display: swap; font-weight: 400; src: url("/fonts/sora-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "Sora"; font-style: normal; font-display: swap; font-weight: 500; src: url("/fonts/sora-latin-500-normal.woff2") format("woff2"); }
+@font-face { font-family: "Sora"; font-style: normal; font-display: swap; font-weight: 600; src: url("/fonts/sora-latin-600-normal.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-display: swap; font-weight: 400; src: url("/fonts/jetbrains-mono-latin-400-normal.woff2") format("woff2"); }
+@font-face { font-family: "JetBrains Mono"; font-style: normal; font-display: swap; font-weight: 500; src: url("/fonts/jetbrains-mono-latin-500-normal.woff2") format("woff2"); }

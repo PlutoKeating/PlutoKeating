@@ -45,7 +45,14 @@ function updateActiveCategory() {
     if (section.getBoundingClientRect().top <= boundary) active = section;
   }
   for (const link of categoryLinks) {
-    if (active && link.hash === `#${active.id}`) link.setAttribute('aria-current', 'location');
+    const isCurrent = Boolean(active) && link.hash === `#${active.id}`;
+    if (isCurrent && !link.hasAttribute('aria-current')) {
+      // On narrow screens the category row scrolls sideways: keep the current one in view.
+      const nav = link.parentElement;
+      const target = link.offsetLeft - (nav.clientWidth - link.offsetWidth) / 2;
+      nav.scrollTo({ left: Math.max(0, target), behavior: 'instant' });
+    }
+    if (isCurrent) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
   }
 }
@@ -85,7 +92,7 @@ document.querySelectorAll('.remote-stat').forEach((img) => {
     const link = document.createElement('a');
     link.href = 'https://github.com/PlutoKeating';
     link.textContent = `${img.alt}：前往 GitHub 查看`;
-    link.className = 'text-link';
+    link.className = 'stat-fallback';
     img.replaceWith(link);
   };
   if (img.complete && !img.naturalWidth) fallback();

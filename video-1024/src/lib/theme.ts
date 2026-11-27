@@ -1,4 +1,4 @@
-// PlutoKeating design system tokens（来自 site/design-system/tokens.generated.css，深色主题）
+// PlutoKeating design system tokens（最初来自站点早期的 site/design-system/tokens.generated.css，该文件已移除；深色主题）
 export const T = {
   bg: "#0e0f11",
   bgElevated: "#131417",

@@ -1,6 +1,6 @@
 # 部署到 Cloudflare Pages
 
-这个仓库是使用 Tailwind CSS 构建的静态站点。`README.md` 是项目资料来源；构建脚本从项目表格生成页面，将贡献图转换为网站配色，并把可部署文件写入 `dist/`。
+这个仓库是使用 Tailwind CSS 构建的静态站点。`README.md` 是项目资料来源；构建脚本从项目表格生成页面，将贡献图转换为网站配色，从 `Quetzalcoatl design system/` 复制字体与光学脚本，并把可部署文件写入 `dist/`。
 
 ## 1. 连接 GitHub 仓库
 
@@ -28,6 +28,8 @@
 
 - `/style.css`
 - `/app.js`
+- `/optics.js`
+- `/fonts/sora-latin-500-normal.woff2`
 - `/pluto-portrait.jpg`
 - `/contribution-site.svg`
 
@@ -57,6 +59,6 @@
 
 本地预览需要 Node.js 20 或更新版本以及 Python 3：先运行 `npm ci`、`npm run build`，再运行 `npm run dev`，打开 <http://localhost:4173>。
 
-项目内容请编辑 `README.md`，页面布局与样式在 `site/`。构建结果 `dist/` 已加入 `.gitignore`，无需提交。
+项目内容请编辑 `README.md`，页面布局与站点专属样式在 `site/`；品牌 tokens、组件样式、字体和光学脚本来自 `Quetzalcoatl design system/`，构建时直接引用，改动视觉请先读该目录的 `README.md`。构建结果 `dist/` 已加入 `.gitignore`，无需提交。
 
 参考：[Git 集成](https://developers.cloudflare.com/pages/get-started/git-integration/) · [构建镜像](https://developers.cloudflare.com/pages/configuration/build-image/) · [自定义域名](https://developers.cloudflare.com/pages/configuration/custom-domains/) · [预览部署](https://developers.cloudflare.com/pages/configuration/preview-deployments/)

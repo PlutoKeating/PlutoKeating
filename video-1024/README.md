@@ -12,7 +12,7 @@ npx remotion still Pluto1024 --frame=1800 /tmp/x.png   # 单帧预览
 
 ## 结构
 
-- `src/lib/theme.ts`：design system token（取自 site/design-system）与抖音安全区 `SAFE`。
+- `src/lib/theme.ts`：本视频自带的 design token（最初取自站点早期的 `site/design-system`，该目录已随站点迁移到新版 Quetzalcoatl 而移除）与抖音安全区 `SAFE`。
 - `src/lib/timing.ts`：音乐 110 BPM 节拍网格与各章节时间表 `SCHEDULE`（秒），改这里即可移动章节。
 - `src/ui/primitives.tsx`：Backdrop / Safe / Panel / TypeText / PhoneFrame / Sfx 等原语。
 - `src/ui/ContribWall.tsx`：贡献墙，数据来自 `src/lib/contrib.json`（由仓库根目录 contribution-light.svg 提取）。
