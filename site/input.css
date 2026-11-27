@@ -28,6 +28,38 @@ h1, h2, h3, h4, p, figure { margin: 0; }
 .skip-link { position: fixed; top: 12px; left: 12px; z-index: 200; transform: translateY(-200%); }
 .skip-link:focus { transform: none; }
 
+/* Wordmark: the one sanctioned exception to the two-signal palette. Six bands
+   in the order of the 1977 Apple rainbow, softened towards white, cut by the
+   horizontal slits of the IBM 8-bar mark where the type is large enough. */
+.wordmark {
+  --wm-mix: 34%;
+  --wm-top: 0.3em;   /* cap line, from the top of the glyph box */
+  --wm-band: 0.118em; /* cap height / 6 */
+  --wm-slit: 0em;
+  --wm-1: color-mix(in oklab, #61bb46 var(--wm-mix), #fff);
+  --wm-2: color-mix(in oklab, #fdb827 var(--wm-mix), #fff);
+  --wm-3: color-mix(in oklab, #f5821f var(--wm-mix), #fff);
+  --wm-4: color-mix(in oklab, #e03a3e var(--wm-mix), #fff);
+  --wm-5: color-mix(in oklab, #963d97 var(--wm-mix), #fff);
+  --wm-6: color-mix(in oklab, #009ddc var(--wm-mix), #fff);
+  --b1: calc(var(--wm-top) + var(--wm-band));
+  --b2: calc(var(--wm-top) + 2 * var(--wm-band));
+  --b3: calc(var(--wm-top) + 3 * var(--wm-band));
+  --b4: calc(var(--wm-top) + 4 * var(--wm-band));
+  --b5: calc(var(--wm-top) + 5 * var(--wm-band));
+  background-image: linear-gradient(to bottom,
+    var(--wm-1) 0 calc(var(--b1) - var(--wm-slit)), transparent calc(var(--b1) - var(--wm-slit)) var(--b1),
+    var(--wm-2) var(--b1) calc(var(--b2) - var(--wm-slit)), transparent calc(var(--b2) - var(--wm-slit)) var(--b2),
+    var(--wm-3) var(--b2) calc(var(--b3) - var(--wm-slit)), transparent calc(var(--b3) - var(--wm-slit)) var(--b3),
+    var(--wm-4) var(--b3) calc(var(--b4) - var(--wm-slit)), transparent calc(var(--b4) - var(--wm-slit)) var(--b4),
+    var(--wm-5) var(--b4) calc(var(--b5) - var(--wm-slit)), transparent calc(var(--b5) - var(--wm-slit)) var(--b5),
+    var(--wm-6) var(--b5) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+.qz-display .wordmark { --wm-slit: 0.02em; }
+@media (forced-colors: active) { .wordmark { background: none; -webkit-text-fill-color: currentColor; color: inherit; } }
+
 /* Hero */
 .qz-hero .qz-lead { margin-top: 1.5rem; }
 .overview-figure { font-family: var(--qz-font-mono); font-size: 1.5rem; font-weight: 500; line-height: 1.2; }
