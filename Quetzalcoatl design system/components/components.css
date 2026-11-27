@@ -55,6 +55,55 @@
   color: #ffffff;
 }
 
+/* Spectrum wordmark: the one place the system shows colour that is not a
+   signal. Six horizontal bands in the order of the 1977 Apple rainbow, cut by
+   thin slits (after the IBM 8-bar mark) where the type is large enough.
+   The band geometry is measured for Sora: cap line 0.3em below the top of
+   the glyph box, cap height 0.708em split in six. */
+.qz-wordmark {
+  --qz-wm-top: 0.3em;
+  --qz-wm-band: 0.118em;
+  --qz-wm-slit: 0em;
+  --qz-wm-b1: calc(var(--qz-wm-top) + var(--qz-wm-band));
+  --qz-wm-b2: calc(var(--qz-wm-top) + 2 * var(--qz-wm-band));
+  --qz-wm-b3: calc(var(--qz-wm-top) + 3 * var(--qz-wm-band));
+  --qz-wm-b4: calc(var(--qz-wm-top) + 4 * var(--qz-wm-band));
+  --qz-wm-b5: calc(var(--qz-wm-top) + 5 * var(--qz-wm-band));
+  background-image: linear-gradient(
+    to bottom,
+    var(--qz-spectrum-1) 0 calc(var(--qz-wm-b1) - var(--qz-wm-slit)),
+    transparent calc(var(--qz-wm-b1) - var(--qz-wm-slit)) var(--qz-wm-b1),
+    var(--qz-spectrum-2) var(--qz-wm-b1) calc(var(--qz-wm-b2) - var(--qz-wm-slit)),
+    transparent calc(var(--qz-wm-b2) - var(--qz-wm-slit)) var(--qz-wm-b2),
+    var(--qz-spectrum-3) var(--qz-wm-b2) calc(var(--qz-wm-b3) - var(--qz-wm-slit)),
+    transparent calc(var(--qz-wm-b3) - var(--qz-wm-slit)) var(--qz-wm-b3),
+    var(--qz-spectrum-4) var(--qz-wm-b3) calc(var(--qz-wm-b4) - var(--qz-wm-slit)),
+    transparent calc(var(--qz-wm-b4) - var(--qz-wm-slit)) var(--qz-wm-b4),
+    var(--qz-spectrum-5) var(--qz-wm-b4) calc(var(--qz-wm-b5) - var(--qz-wm-slit)),
+    transparent calc(var(--qz-wm-b5) - var(--qz-wm-slit)) var(--qz-wm-b5),
+    var(--qz-spectrum-6) var(--qz-wm-b5) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Slits only at display size; below that the bands are too thin to cut. */
+.qz-display .qz-wordmark,
+.qz-monument .qz-wordmark,
+.qz-wordmark.is-slit {
+  --qz-wm-slit: 0.02em;
+}
+
+@media (forced-colors: active) {
+  .qz-wordmark {
+    background: none;
+    -webkit-text-fill-color: currentColor;
+    color: inherit;
+  }
+}
+
 .qz-brand svg {
   height: 26px;
   width: auto;

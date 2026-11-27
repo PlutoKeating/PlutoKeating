@@ -29,8 +29,25 @@
 - 结构：`.qz-nav-inner` 内左侧 `.qz-brand`（标记 SVG 26px 高 + 字标），右侧 `.qz-nav-links`。
 - 74px 高，sticky，84% 黑 + 16px 模糊，底部一条发丝线。
 - 链接默认 `--qz-ink-secondary`，悬停变白，150ms。没有下划线，没有当前项背景。
-- 字标：Sora 600、1.28rem、字距 -0.025em。品牌名始终 LTR。
+- 字标：Sora 600、1.28rem、字距 -0.025em。品牌名始终 LTR。可以包一层 `.qz-wordmark` 成为光谱字标（见下）。
 - 移动端不折叠成汉堡菜单：间距从 2.25rem 收到 1.05rem，所有入口保持可见。
+
+## 光谱字标 `.qz-wordmark`
+
+系统里唯一不是信号的颜色。把它包在品牌名或所有者名的文字外面：
+
+```html
+<a class="qz-brand" href="/"><span class="qz-wordmark">Quetzalcoatl</span></a>
+<h1 class="qz-display">I'm <span class="qz-wordmark">PlutoKeating</span>.</h1>
+```
+
+- 六条横向色带，自上而下为 `--qz-spectrum-1` 到 `-6`（绿、黄、橙、红、紫、蓝），正好铺满大写字母高度；下伸部分延续蓝色。
+- 在 `.qz-display` / `.qz-monument` 内自动带 0.02em 的镂空细缝，透出底色；其他尺寸不切缝。需要在别处强制切缝时加 `.is-slit`，字号小于约 2.5rem 时不要加。
+- 只包名字本身，周围的文字和标点保持白色。
+- 每页至多两处：导航栏品牌名，加上一个大标题中的名字。正文、按钮、页脚、标签里的同一个名字保持白色。
+- 不要改色带顺序、不要改成渐变、不要加动效、不要用于图标或插图。
+- 色带位置按 Sora 测量；CJK 字形没有大写高度的概念，不要用于中文名。
+- `forced-colors` 模式下退回普通文字颜色。
 
 ## 菜单 `.qz-menu`
 

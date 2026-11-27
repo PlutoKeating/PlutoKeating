@@ -3,7 +3,7 @@
 These are not preferences. A design that breaks one of them is not Quetzalcoatl.
 
 1. **The page is `#000000`.** Never a dark grey, never a gradient ground, never a light mode.
-2. **96% of every screen has zero saturation.** The only two hues are Ice `#BAE6FD` and Tungsten Amber `#E5A03D`. No green, red, blue or purple, including for success and error states.
+2. **96% of every screen has zero saturation.** The only two hues are Ice `#BAE6FD` and Tungsten Amber `#E5A03D`. No green, red, blue or purple, including for success and error states. The single exception is the spectrum wordmark (`.qz-wordmark`): the brand or owner name, in the nav bar and at most once in a display headline per page. Its six `--qz-spectrum-*` colours are never used for anything else.
 3. **Colour is meaning.** Ice = verified, active, automatic, done. Amber = a human speaking, needs a human, drift, manual. Never use either as decoration, and never as the only signal.
 4. **Light is fixed and faint.** One viewport-fixed optical horizon per page; ice alpha at most 0.14, amber at most 0.11. Specular lines are always 1px. Only a 6px LED or the active tick may glow.
 5. **Hairlines, not boxes.** No cards, no bordered tiles, no filled panels. Group with 1px low-alpha white lines and whitespace; use `.qz-rail` where cards would go.
