@@ -41,7 +41,7 @@ h1, h2, h3, h4, p, figure { margin: 0; }
   --wm-3: oklch(0.82 0.17 56);
   --wm-4: oklch(0.74 0.19 22);
   --wm-5: oklch(0.72 0.23 312);
-  --wm-6: oklch(0.81 0.15 242);
+  --wm-6: #2ec4ff;
   --b1: calc(var(--wm-top) + var(--wm-band));
   --b2: calc(var(--wm-top) + 2 * var(--wm-band));
   --b3: calc(var(--wm-top) + 3 * var(--wm-band));
